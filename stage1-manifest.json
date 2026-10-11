@@ -13,8 +13,8 @@
     },
     {
       "path": ".github/workflows/stage1.yml",
-      "bytes": 707,
-      "sha256": "4630f7cb5fdb4c54b406f2a17831b09e3a0a64d1a3f5cd40fe310ec597b8e73a",
+      "bytes": 815,
+      "sha256": "f7716a66115a871cd7f4128cb9ca8b23afc20e137a9de74e5be056e053bff446",
       "source": "workspace",
       "text_normalization": "lf"
     },
@@ -57,19 +57,19 @@
     },
     {
       "path": "docs/STAGE1_VALIDATION.md",
-      "bytes": 2994,
-      "sha256": "96b7cca0bd6db11a929e5b75b87075d7604a76107eb7f2d00828a9e3b29e8722",
+      "bytes": 3392,
+      "sha256": "bbd572bccbb8e955eafd34cbcf414de0974ffedc7cf8743450c0691fae58b2bf",
       "source": "workspace",
       "text_normalization": "lf",
-      "input_sha256": "86789862a22f6282be5fe995869861e17e55b4e6617c8612a8afc1b52e0c1849"
+      "input_sha256": "459449e23a791e2e40d471fc5ff4169f8a7b280b7a5f18729630f96e24b88fb8"
     },
     {
       "path": "docs/stage1_checkpoint.json",
-      "bytes": 13353,
-      "sha256": "989a1fdb7c71f4da3814c56c0fc652db8849b77fa9afb48d7750ae7152001bed",
+      "bytes": 13451,
+      "sha256": "29ce2158546e5fc72d28e20e30f8eede086a267affefebfcf6b44ce75d0ae54d",
       "source": "workspace",
       "text_normalization": "lf",
-      "input_sha256": "c48f5fe1f0f1955c20e5b3654ba13ed64aa2168c0cc0f1c62acc8c349071273d"
+      "input_sha256": "829a9cf50b7edb4b60058b8e8f43aafe218285a54575af8165bb038badc07614"
     },
     {
       "path": "docs/UNITS.md",
@@ -694,19 +694,19 @@
     },
     {
       "path": "tests/test_m2.py",
-      "bytes": 20723,
-      "sha256": "59fc4f1f877e74a93181ac3a4b30afa39b950e21d383c2d0f2ae25d2c4d0dacb",
+      "bytes": 20769,
+      "sha256": "a6942dd3a9a706cad31f8004dcb138e17afe11d446ddf1fdec09dde5ed88c23c",
       "source": "workspace",
       "text_normalization": "lf",
-      "input_sha256": "61792ac2fcfede4c9c43c0907875f37319e05fca48d22b1fbf7d044c3664e996"
+      "input_sha256": "29b59e049110a4879aa16e6ce9b5db746c1b8a74367e8929e1a0304fecd7b544"
     },
     {
       "path": "tests/test_m3.py",
-      "bytes": 18175,
-      "sha256": "b4a59d6816d7863914b3147470a21a379c25d2c28e0a7e76ff45cb6ca469209b",
+      "bytes": 18198,
+      "sha256": "a9e320b331818e4eadec757ed9501d4fa1d8a9e50bf2299deef8e320184f8a34",
       "source": "workspace",
       "text_normalization": "lf",
-      "input_sha256": "132d3ad2cde44c94e95be18bb2a07344c69dd494b5e020b89de9b19237eaea53"
+      "input_sha256": "bfcef0556b7323633201b11e05cd4de427f24517ec669464fe619cdc049b7463"
     },
     {
       "path": "tests/test_math_primitives.py",
@@ -761,11 +761,11 @@
     },
     {
       "path": "tests/test_phase1.py",
-      "bytes": 16983,
-      "sha256": "f5526f4bef43749023245220b9a9670bb2d422b4b86cb755381ec4c5d0376693",
+      "bytes": 17006,
+      "sha256": "22c1735ea0ce31b4e6b523a21bbdc66be5dbba504691e4dc33bf2824b3572904",
       "source": "workspace",
       "text_normalization": "lf",
-      "input_sha256": "cc20a801eab3f03062a8ce61cc236cdbedf6349b8151d1d89c5103d8e5bb7fc3"
+      "input_sha256": "9cd970305a4a300913fc1e67e5b35bf3ea0ebd2a6cf08aafd105e445e722155a"
     },
     {
       "path": "tests/test_placement.py",

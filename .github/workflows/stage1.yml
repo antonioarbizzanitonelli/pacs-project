@@ -27,3 +27,5 @@ jobs:
         run: python -m unittest discover -s tests -q
       - name: Run the public API example
         run: python examples/stage1_quickstart.py
+      - name: Verify the publication manifest
+        run: python scripts/prepare_stage1_release.py --check

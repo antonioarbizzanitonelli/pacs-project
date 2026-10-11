@@ -14,8 +14,8 @@ The stable implementation passed these checks on 2026-10-11:
 
 | Check | Result | Time |
 |---|---|---|
-| Stage-1 publication with licensed Gurobi | 647 tests passed | 4.024 s |
-| Installed wheel with base dependencies | 643 tests run; 641 passed, 2 optional Gurobi skips | 3.489 s |
+| Stage-1 publication with licensed Gurobi | 647 tests passed | 4.405 s |
+| Installed wheel with base dependencies | 643 tests run; 641 passed, 2 optional Gurobi skips | 3.906 s |
 
 Both runs completed successfully. The counts differ because an unavailable
 Gurobi backend skips its test class before method discovery. HiGHS coverage
@@ -40,10 +40,16 @@ the analytical oracle, together with the GH/AGH transition semantics.
 Hand-derived cases isolate binding memory, storage and budget constraints.
 Their HiGHS and licensed Gurobi optima agree with the independent tiny oracle.
 
-The GitHub workflow targets Python 3.13 and 3.14. The executed checkpoint covers
-local Python 3.14.3; hosted CI and Python 3.13 execution remain unverified.
+The local checkpoint covers Python 3.14.3. The GitHub workflow runs the regression,
+example and manifest check on Ubuntu with Python 3.13 and 3.14; results are
+available in the repository's [CI history](https://github.com/antonioarbizzanitonelli/pacs-project/actions/workflows/stage1.yml).
 The final export retains the tested Python inventory and incorporates the
 completed documentation record.
+
+Immutable-property tests require assignment to be rejected and accept
+`FrozenInstanceError` or `TypeError`, reflecting the exceptions raised by the
+supported Python patch versions for frozen, slotted records. The record's
+immutability remains the tested contract.
 
 The standalone publication configuration passes the exporter's input check in
 a directory without Git history. Rebuilding the delivery reads the published

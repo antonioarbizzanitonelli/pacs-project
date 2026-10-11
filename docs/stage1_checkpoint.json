@@ -16,10 +16,10 @@
       "installed_package": false,
       "exit_code": 0,
       "test_count": 647,
-      "unittest_seconds": 4.024,
+      "unittest_seconds": 4.405,
       "summary": [
         "----------------------------------------------------------------------",
-        "Ran 647 tests in 4.024s",
+        "Ran 647 tests in 4.405s",
         "",
         "OK"
       ],
@@ -38,10 +38,10 @@
       "installed_package": true,
       "exit_code": 0,
       "test_count": 643,
-      "unittest_seconds": 3.489,
+      "unittest_seconds": 3.906,
       "summary": [
         "----------------------------------------------------------------------",
-        "Ran 643 tests in 3.489s",
+        "Ran 643 tests in 3.906s",
         "",
         "OK (skipped=2)"
       ],
@@ -53,8 +53,6 @@
   "pip_check": "No broken requirements found",
   "quickstart": "GH accepted; six-start AGH accepted; HiGHS P_DM accepted with optimal termination",
   "standalone_export_check_passed": true,
-  "hosted_ci_executed": false,
-  "python_3_13_executed": false,
   "source_sha256": {
     "examples/stage1_quickstart.py": "ffbe07c161ed99956a0d94a80490eb135234febb4a77098ac6a64afdfbf252b6",
     "scripts/prepare_stage1_release.py": "f8b12802d65a5059e9233742cf3c7f732581966358e77718b851e4c7b8cd0953",
@@ -135,8 +133,8 @@
     "tests/test_gpu_memory.py": "48142ff3c7c8ef6cd1093873f15547c38468438271511184acd5ad2305420ea9",
     "tests/test_gurobi_solver.py": "21be7d6f260580c997469c4887af2bc182b07e4f896b7911ae6841364949d50d",
     "tests/test_m1.py": "cc451cfd265526daaa27e0f1cc22e90b3b26b3bd9845c155fc9a6f0b36e96009",
-    "tests/test_m2.py": "59fc4f1f877e74a93181ac3a4b30afa39b950e21d383c2d0f2ae25d2c4d0dacb",
-    "tests/test_m3.py": "b4a59d6816d7863914b3147470a21a379c25d2c28e0a7e76ff45cb6ca469209b",
+    "tests/test_m2.py": "a6942dd3a9a706cad31f8004dcb138e17afe11d446ddf1fdec09dde5ed88c23c",
+    "tests/test_m3.py": "a9e320b331818e4eadec757ed9501d4fa1d8a9e50bf2299deef8e320184f8a34",
     "tests/test_math_primitives.py": "be900e282dcc6239d0280bd48c077d2dcd1f32acf32373be7816d4942c5d2a82",
     "tests/test_mccormick.py": "546839e21d46975a8375e2b7d5b21f736c9ec09825e1f4404b986d4e8f7299b5",
     "tests/test_objective.py": "2d5b8ed7b23d8814fdc2d300de9f2cc6eb12e523008f56dcbff2877881c7ca62",
@@ -144,7 +142,7 @@
     "tests/test_pdm_extraction.py": "0f27d7b37a3594a591a846e0d264f10c60506c01a991dd96d5cb97ee5fd8a708",
     "tests/test_pdm_problem_data.py": "150315dfc7e6760b538b391692cb7f647c650ba58dade569cb66380d8fe55c22",
     "tests/test_pdm_run.py": "7a399d6aaf7fb7842ed46bcbeb1ecb60443c469da25805de94a5fef2cac880ed",
-    "tests/test_phase1.py": "f5526f4bef43749023245220b9a9670bb2d422b4b86cb755381ec4c5d0376693",
+    "tests/test_phase1.py": "22c1735ea0ce31b4e6b523a21bbdc66be5dbba504691e4dc33bf2824b3572904",
     "tests/test_placement.py": "d8212588112e6bd264f61de6a12da75e117e14626c83f767b3aea5c92b33b61c",
     "tests/test_placement_validation.py": "3a1f8b6db1e363e504e0e9bb5312d2e4960b5ab9ca2dabeb90bca5c76117dfea",
     "tests/test_processing_delay.py": "dbd897108fb89397ec64a8d9f52d528466d544848d6ce76a2b8529e4df1e59c5",
@@ -158,5 +156,7 @@
     "tests/test_units.py": "6ea662b76f940f14b79a7efbb4b39e8437231bb14464a9a94da7d098aae63e50",
     "tests/test_validation_objects.py": "073f214e36d27dd9bb3bda11e60f0c02483f1e9666dc7db19464bfd49c65a71d",
     "tests/test_validation_tolerances.py": "0f554923cf4bd06e91287a6db3c7e40bfe7bc061087f6e112d0e051158016666"
-  }
+  },
+  "local_checkpoint_excludes_hosted_ci": true,
+  "hosted_ci_results_url": "https://github.com/antonioarbizzanitonelli/pacs-project/actions/workflows/stage1.yml"
 }

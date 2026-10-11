@@ -517,9 +517,9 @@ class M2ImmutabilityAndIsolationTests(unittest.TestCase):
         self.assertEqual(snapshot_value(evaluation_inputs), before_state)
         with self.assertRaises(FrozenInstanceError):
             evaluation_inputs.current_gpu_count = 2
-        with self.assertRaises(TypeError):
+        with self.assertRaises((FrozenInstanceError, TypeError)):
             result.pi = 1
-        with self.assertRaises(TypeError):
+        with self.assertRaises((FrozenInstanceError, TypeError)):
             result.cost_breakdown.incremental_gpu_count = 99
 
     def test_invalid_dynamic_inputs_is_rejected_without_clipping(self):

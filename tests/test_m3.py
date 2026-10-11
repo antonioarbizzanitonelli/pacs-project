@@ -447,7 +447,7 @@ class M3ImmutabilityReuseAndIsolationTests(unittest.TestCase):
             state.remaining_budget_usd = 0.0
         with self.assertRaises(FrozenInstanceError):
             first.selected_configuration = ParallelismConfig(4, 1)
-        with self.assertRaises(TypeError):
+        with self.assertRaises((FrozenInstanceError, TypeError)):
             first.selected_diagnostic.incremental_gpu_count = 99
 
     def test_invalid_state_and_unsupported_current_configuration_fail_clearly(self):

@@ -454,7 +454,7 @@ class Phase1IsolationAndImmutabilityTests(unittest.TestCase):
         self.assertEqual(first, second)
         self.assertEqual(query_ids, ("q_easy", "q_tight"))
         self.assertEqual(evidence, m1_evidence(instance, "tier_a", query_ids))
-        with self.assertRaises(TypeError):
+        with self.assertRaises((FrozenInstanceError, TypeError)):
             first.coverage.covered_query_ids = ()
 
 
