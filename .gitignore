@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+build/
+dist/
+tmp/
+data/external/azure_2024/*.csv
+data/external/azure_2024/*.partial
+
+# Local measurements and frozen execution snapshots are retained on disk.
+/results/
+/.azure-replay-test-*/
+/guide_lettura/
+/docs/presentation/
+/docs/presentation_drafts/

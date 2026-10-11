@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-resource-allocation"
+version = "0.1.0"
+description = "Scientific reference implementation for heterogeneous LLM allocation"
+readme = "README.md"
+requires-python = ">=3.13"
+license = {text = "Research use; license not yet selected"}
+authors = [{name = "PACS Project contributors"}]
+dependencies = [
+    "highspy==1.14.0",
+    "pyomo==6.10.0",
+]
+
+[project.optional-dependencies]
+gurobi = ["gurobipy==13.0.3"]
+plots = ["matplotlib>=3.10,<4"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
