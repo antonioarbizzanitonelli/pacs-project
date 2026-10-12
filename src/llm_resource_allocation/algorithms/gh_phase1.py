@@ -201,7 +201,7 @@ def evaluate_gh_phase1_candidates(
     """Recompute ``F[j,k]`` and ``Cost(j,k)`` at the current ``I_unc``.
 
     Candidates follow model-then-tier semantic order, including active pairs,
-    as required by Algorithm 1's all-pair loop (D-0036).
+    as required by Algorithm 1's all-pair loop.
     """
 
     validate_problem_instance(instance)
@@ -218,7 +218,7 @@ def apply_gh_phase1_activation(
 
     Remove exactly the Eq. (13) coverage set from ``I_unc`` in surviving order,
     store its common configuration as ``y``, and add Eq. (14) rental cost
-    without mutating the input (D-0036).
+    without mutating the input.
     """
 
     validate_problem_instance(instance)
@@ -234,7 +234,7 @@ def run_gh_phase1(
     """Run the GH Phase-1 activation loop (v2 Algorithm 1, lines 1-6).
 
     The guard is ``accumulated_rental < beta*delta`` before selection. An
-    activation may reach or overshoot the cap; the next guard stops (D-0036).
+    activation may reach or overshoot the cap; the next guard stops.
     """
 
     validate_problem_instance(instance)

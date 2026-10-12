@@ -32,7 +32,7 @@ class BudgetDiagnostic:
     def total_budget_use(self) -> float:
         """Return ``C1 + C2 + C3``, the resource cost in Eq. (8c).
 
-        Coherent inputs use resident data stock, giving USD under D-0101.
+        Coherent inputs use resident data stock, giving a budget cost in USD.
         Literal historical inputs retain the printed C3 unit caveat.
         """
 

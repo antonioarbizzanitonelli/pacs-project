@@ -211,7 +211,7 @@ class AGHMultiStartScheduleTests(unittest.TestCase):
 
 
 class AGHMultiStartIncumbentTests(unittest.TestCase):
-    """Prove D-0045 incumbent and counter transitions."""
+    """Verify strict incumbent selection and the shared nonimprovement counter."""
 
     @classmethod
     def setUpClass(cls):

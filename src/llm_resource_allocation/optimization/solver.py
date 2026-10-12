@@ -1,4 +1,4 @@
-"""Invoke HiGHS or Gurobi and normalize solver evidence (D-0080).
+"""Invoke HiGHS or Gurobi and normalize solver evidence.
 
 Extraction and independent scientific validation are separate operations.
 """
@@ -66,7 +66,7 @@ class NoSolverIncumbentError(SolverAdapterError):
 class SolverConfig:
     """Configure backend, time limit in seconds, MIP gaps, and logging.
 
-    Gurobi is the default (D-0096); ``None`` uses native backend defaults.
+    Gurobi is the default; ``None`` uses native backend defaults.
     """
 
     backend: SolverBackend = SolverBackend.GUROBI

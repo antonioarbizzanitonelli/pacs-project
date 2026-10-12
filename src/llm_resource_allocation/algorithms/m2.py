@@ -141,7 +141,7 @@ class M2MarginalCostBreakdown:
 
 @dataclass(frozen=True, slots=True)
 class M2EffectiveCoverageDiagnostic:
-    """Record Eq. (11) limits and non-negative allocatable coverage (D-0033).
+    """Record Eq. (11) limits and non-negative allocatable coverage.
 
     A ``None`` limit means zero consumption with a non-negative residual budget.
     Negative printed ratios remain visible; allocatable coverage is at least zero.
@@ -288,9 +288,9 @@ def compute_m2_effective_coverage(
 
     ``x_bar = min(r_tilde_i, (epsilon_i-E_used_i)/e_bar,
                  (Delta_i-D_used_i)/D_cfg)``.
-    Delay quantities are in seconds. D-0033 defines zero-denominator handling
-    and non-negative allocation; memory, capacity, and rental budget are later
-    commit checks.
+    Delay quantities are in seconds. Zero consumption is non-binding only when
+    the residual budget is non-negative; allocatable coverage is at least zero.
+    Memory, capacity, and rental budget are later commit checks.
     """
 
     query, model, tier = _validate_m2_candidate_identity(instance, configuration_evidence)
@@ -316,7 +316,7 @@ def evaluate_m2_candidate(
 
     ``pi = 1[x_bar < r_tilde_i]`` and, for positive coverage, ``kappa=c/x_bar``.
     Missing configurations or non-positive coverage remain diagnostic evidence
-    with ``kappa=None`` and are excluded from ranking (Algorithm 1, D-0033).
+    with ``kappa=None`` and are excluded from ranking (Algorithm 1).
     """
 
     validate_problem_instance(instance)
@@ -332,7 +332,7 @@ def rank_m2_candidates(
     """Return rankable candidates in ascending ``(pi,kappa)`` order.
 
     Exact ties retain supplied semantic order; unrankable candidates are omitted
-    without tolerance or secondary ID ordering (Algorithm 1, D-0033).
+    without tolerance or secondary ID ordering (Algorithm 1).
     """
 
     rankable = tuple(
@@ -445,7 +445,7 @@ def _paper_coverage_limit(
     """Return ``residual_budget/unit_consumption`` with Eq. (11) edge handling.
 
     For zero consumption, return ``None`` if the residual is non-negative,
-    otherwise zero: no future consumption can repair an exceeded budget (D-0033).
+    otherwise zero: no future consumption can repair an exceeded budget.
     """
 
     if unit_consumption > 0.0:

@@ -1,9 +1,11 @@
 # Stage-1 units and scientific contract
 
-D-0101, approved on 2026-10-11, is the current interpretation for dimensionally
-coherent Stage-1 controls and costs. It explicitly departs from printed memory,
-storage and delay-cost expressions. `UnitConvention.LITERAL_PAPER` preserves
-the previous convention for historical evidence.
+Stage-1 resource constraints and costs use consistent physical units. KV memory
+accounts for average concurrent requests, stored data has an explicit retention
+time, and delay penalties cover the requests arriving during the optimization
+horizon. These expressions specify the project's dimensional interpretation of
+the paper's model. `UnitConvention.LITERAL_PAPER` retains the printed arithmetic
+for historical regression fixtures.
 
 ## Inputs and physical factors
 
@@ -65,8 +67,8 @@ residency, `arrival/second * residency/seconds`. `T_res` is an explicit input.
 Data storage represents steady resident stock with lifetime `R`; setting `R=0`
 models immediate data deletion while admitted model weights remain in storage.
 
-The per-query storage closure and query-indexed weights remain unchanged
-(D-0016/D-0005). Each row accounts for its query's admitted model weights.
+Storage capacity is checked separately for each query. Each row includes the
+weights of the models admitted for that query and its resident data.
 GPU capacity is measured per GPU and gated by `q`. `D_proc` includes served
 fractions through `v`, so C4 applies the arrival count directly. M2 uses the same
 resident-data and period-delay factors in its marginal ranking cost.
@@ -83,13 +85,7 @@ classify the resulting residuals, and validation evaluates the supplied `v`
 directly. Solver tolerances, normalization, independent acceptance and strict
 objective improvement have separate contracts.
 
-## Provenance
-
-SI factors are **DERIVED**. Mean concurrency, resident stock and period delay
-cost are approved **SCIENTIFIC INTERPRETATION**. The configurable one-hour
-residency is **ASSUMED**. Explicit enums, aliases and
-preserved historical fixtures are **IMPLEMENTATION CHOICE**. D-0101 supersedes
-literal dimensional defaults from D-0002/D-0008/D-0016 while preserving their
-linearization and index structure.
-
-Literal fixtures retain their original convention as regression evidence.
+The one-hour default for data retention is a configurable model assumption.
+Changing it scales resident data and its storage cost through the same input
+parameter. The auxiliary-variable linearization and query indexing are shared
+by both unit conventions; literal fixtures keep their original regression values.

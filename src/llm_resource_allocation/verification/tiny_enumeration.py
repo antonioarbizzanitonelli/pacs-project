@@ -11,7 +11,7 @@ Only one continuous variable, ``x``, remains. Resource/SLO rows have the form
 ``fixed+slope*x <= limit`` with non-negative slopes, so they bound ``x`` from
 above or check a fixed term. Together with ``1-zeta <= x <= z`` and ``[0,1]``,
 their intersection is an interval. The objective is affine on that interval,
-so its minimum is attained at an endpoint (D-0026, D-0028).
+so its minimum is attained at an endpoint.
 
 Construct and independently validate the endpoints, then retain the cheapest
 states and their ties. The oracle uses no optimizer and provides only tiny
@@ -84,12 +84,12 @@ class TinyEnumerationLimitError(TinyEnumerationError):
 
 
 class UnsupportedTinyOracleInstanceError(TinyEnumerationError):
-    """Reject dimensions outside the analytical 1x1x1 scope (D-0026)."""
+    """Reject dimensions outside the analytical 1x1x1 scope."""
 
 
 @dataclass(frozen=True, slots=True)
 class TinyEnumerationConfig:
-    """Bound raw enumeration and absolute objective ties (D-0028)."""
+    """Bound raw enumeration and absolute objective ties."""
 
     max_discrete_combinations: int = 4096
     objective_tolerance: float = DEFAULT_OBJECTIVE_COMPARISON_ABSOLUTE_TOLERANCE
@@ -355,13 +355,13 @@ def _routing_interval(
             * gpu_count,
         ),
         (
-            "memory Eq. (8f)/D-0002",
+            "memory Eq. (8f)",
             memory_fixed,
             memory_slope,
             tier.memory_capacity_gb * deployment_indicator,
         ),
         (
-            "storage Eq. (8h)/D-0016",
+            "storage Eq. (8h)",
             model.weight_gb * admission_indicator,
             storage_slope,
             instance.storage_capacity_gb,
@@ -402,7 +402,7 @@ def _build_state(
     gpu_count: int,
     routing_fraction: float,
 ) -> PlacementDecisionState:
-    """Build plain ``q,z,w,y,x,u=1-x,v=x*w`` oracle data (D-0026)."""
+    """Build plain ``q,z,w,y,x,u=1-x,v=x*w`` oracle data."""
 
     lattices = problem_data.variable_lattices
     pair = lattices.model_tier_keys[0]
@@ -553,7 +553,7 @@ def enumerate_tiny_pdm(
     """Find the tiny-instance optimum through exact pruning and endpoint checks.
 
     Prune by ``sum(w)=q`` and ``z<=q`` (v2 Eq. 8d). Scan configurations in index
-    order, validate endpoints, and retain ordered minimum ties (D-0026, D-0028).
+    order, validate endpoints, and retain ordered minimum ties.
     """
 
     selected_config = config or TinyEnumerationConfig()

@@ -1,4 +1,4 @@
-"""Hand-derived dimensional checks for the user-approved D-0101 policy."""
+"""Hand-derived dimensional checks for the explicit coherent-unit convention."""
 
 from dataclasses import replace
 import unittest

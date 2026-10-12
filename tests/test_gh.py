@@ -28,7 +28,7 @@ TIER = "gpu_basic_fp16"
 
 
 def make_two_candidate_instance(*, error_slo=0.025, max_unmet_fraction=0.2):
-    """Build the D-0039 two-identical-candidate hand fixture."""
+    """Build the hand fixture with two identical candidates in one frozen batch."""
 
     base = make_minimal_tiny_instance()
     query = replace(

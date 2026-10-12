@@ -1,7 +1,8 @@
-"""Independent residual-classification defaults (D-0097), not solver options.
+"""Independent residual-classification defaults, separate from solver options.
 
-Absolute floors use the existing row's numerical unit. Memory/storage units
-remain unresolved; these constants do not supply a physical interpretation.
+Absolute floors use each row's numerical unit under the instance's convention.
+These thresholds do not supply a physical interpretation for the unresolved
+memory and storage units in literal-paper mode.
 """
 
 from math import isfinite

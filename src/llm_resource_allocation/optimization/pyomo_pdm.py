@@ -404,7 +404,7 @@ def _add_storage_and_error_expressions(
     problem_data: PdmProblemData,
     lookups: _PdmModelLookups,
 ) -> None:
-    """Build per-query storage and error expressions under D-0016."""
+    """Build one storage and one error expression per query."""
 
     query_by_id = lookups.query_by_id
     model_by_id = lookups.model_by_id

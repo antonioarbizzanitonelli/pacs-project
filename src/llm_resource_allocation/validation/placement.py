@@ -69,7 +69,7 @@ from .tolerances import (
 )
 
 
-# D-0076: dimensionless residual classification; supplied decisions stay unchanged.
+# Dimensionless residual classification; supplied decisions stay unchanged.
 DEFAULT_MCCORMICK_ABSOLUTE_TOLERANCE = DEFAULT_FRACTION_ABSOLUTE_TOLERANCE
 
 
@@ -174,8 +174,8 @@ class ValidationViolation:
 class PlacementValidationReport:
     """Store objective and constraint evidence for v2 Eqs. (7)-(8k).
 
-    Retains the input unit policy; D-0101 supplies coherent units and
-    D-0002/D-0016 remain the literal historical policy. Invalid domains
+    Retain the input unit policy, distinguishing coherent physical units from
+    historical literal-paper memory and storage arithmetic. Invalid domains
     leave the objective and mathematical diagnostics empty.
     """
 

@@ -282,7 +282,7 @@ def order_gh_phase2_queries(instance: ProblemInstance) -> tuple[str, ...]:
     """Return descending ``lambda_i`` order (v2 Algorithm 1).
 
     ``lambda_i`` is ``query.arrival_rate_per_hour``. Exact ties retain instance
-    semantic order (D-0037).
+    semantic order.
     """
 
     validate_problem_instance(instance)
@@ -298,8 +298,8 @@ def initialize_gh_phase2_state(
     """Transfer Phase-1 deployments and initialize Phase-2 query dynamics.
 
     Algorithm 1 starts with ``r_tilde=u=1`` and ``E_used=D_used=0``. Remaining
-    budget is ``delta`` minus Phase-1 rental, including any cap overshoot
-    (D-0036, D-0037). The default query order is descending arrival rate.
+    budget is ``delta`` minus Phase-1 rental, retaining any cap overshoot.
+    The default query order is descending arrival rate.
     """
 
     validate_problem_instance(instance)
@@ -323,7 +323,7 @@ def evaluate_gh_phase2_query_candidates(
     Inactive pairs use M1; active pairs reuse the current shape when its delay
     meets the SLO, otherwise use M3 with remaining budget. Surviving shapes use
     M2 and stable ascending ``(pi,kappa)`` ranking, in model-then-tier semantic
-    order for exact ties (D-0037). Evaluation leaves state unchanged.
+    order for exact ties. Evaluation leaves state unchanged.
     """
 
     validate_problem_instance(instance)

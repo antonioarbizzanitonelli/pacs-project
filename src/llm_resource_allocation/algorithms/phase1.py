@@ -80,7 +80,7 @@ class Phase1CommonConfigurationQueryDiagnostic:
 
 @dataclass(frozen=True, slots=True)
 class Phase1CommonConfigurationDiagnostic:
-    """Check one tier-valid shape at the Eq. (14) GPU count (D-0035)."""
+    """Check one tier-valid shape at the Eq. (14) GPU count."""
 
     configuration: ParallelismConfig
     required_gpu_count: int
@@ -218,7 +218,7 @@ def compute_phase1_pair_coverage(
 
     Reuse M1 evidence and check each query's error SLO, preserving query order.
     The result selects the first tier-ordered configuration at the Eq. (14)
-    GPU count that passes all covered queries' M1 checks (D-0035).
+    GPU count that passes all covered queries' M1 checks.
     Keep the coverage set unchanged if no common configuration exists.
     """
 
@@ -236,7 +236,7 @@ def compute_phase1_activation_score(
     """Return ``Cost = DeltaT*p_gpu[k]*max_i(n_i*m_i)`` and ``|F|/Cost``.
 
     This is Eq. (14) rental cost in USD. ``DeltaT`` is ``instance.horizon_hours``;
-    ``p_gpu`` is ``tier.hourly_rental_usd``. Empty coverage or a missing D-0035
+    ``p_gpu`` is ``tier.hourly_rental_usd``. Empty coverage or a missing
     common shape is non-rankable; nonempty zero-cost coverage has infinite ratio.
     """
 
@@ -269,7 +269,7 @@ def rank_phase1_candidates(
 ) -> tuple[Phase1CandidateEvaluation, ...]:
     """Return rankable candidates by descending ``|F|/Cost`` (Algorithm 1).
 
-    Exact ties retain supplied semantic order (D-0035).
+    Exact ties retain supplied semantic order.
     """
 
     rankable = tuple(evaluation for evaluation in evaluations if evaluation.is_rankable)

@@ -1,6 +1,6 @@
-"""Storage-capacity diagnostics for Paper v2 Eq. (8h), under D-0016.
+"""Storage-capacity diagnostics for Paper v2 Eq. (8h).
 
-D-0016 closes the paper's free query index with one constraint per query.
+Resolve the paper's free query index with one storage constraint per query.
 Coherent units multiply the data rate by explicit steady-state residency;
 literal units retain the historical GB plus GB/hour arithmetic.
 """
@@ -15,7 +15,7 @@ from .placement import PlacementDecisionState, validate_placement_decision_domai
 
 @dataclass(frozen=True, slots=True)
 class QueryStorageCapacityDiagnostic:
-    """Record the per-query storage comparison (v2 Eq. 8h, D-0016).
+    """Record the per-query storage comparison (v2 Eq. 8h).
 
     ``model_storage_usage_gb = sum_(j,k) B_j*z[i,j,k]``;
     ``data_storage_rate_gb_per_hour = sum_(j,k) theta_i*r_i*lambda_i*x[i,j,k]``;
@@ -55,7 +55,7 @@ class QueryStorageCapacityDiagnostic:
 
     @property
     def slack(self) -> float:
-        """Return ``C_s - printed_storage_lhs`` (v2 Eq. 8h, D-0016)."""
+        """Return ``C_s - printed_storage_lhs`` (v2 Eq. 8h)."""
 
         return self.storage_limit_gb - self.printed_storage_lhs
 
@@ -66,7 +66,7 @@ class QueryStorageCapacityDiagnostic:
         return max(-self.slack, 0.0)
 
     def is_feasible(self, tolerance: float = 0.0) -> bool:
-        """Return whether ``slack >= -tolerance`` for Eq. (8h), under D-0016.
+        """Return whether ``slack >= -tolerance`` for the per-query Eq. (8h).
 
         The tolerance uses GB in coherent mode, or the legacy comparison scale.
         """
@@ -85,7 +85,7 @@ def compute_model_storage_usage_by_query(
     instance: ProblemInstance,
     state: PlacementDecisionState,
 ) -> dict[str, float]:
-    """Return ``i -> sum_(j,k) B_j*z[i,j,k]`` in GB (v2 Eq. 8h, D-0016).
+    """Return ``i -> sum_(j,k) B_j*z[i,j,k]`` in GB (v2 Eq. 8h).
 
     ``model.weight_gb`` is B_j; ``state.admission_indicators`` supplies z.
     Each admitted model/tier entry contributes its weight for that query.
@@ -101,7 +101,7 @@ def compute_data_storage_rate_by_query(
 ) -> dict[str, float]:
     """Return ``i -> sum_(j,k) theta_i*r_i*lambda_i*x[i,j,k]`` (v2 Eq. 8h).
 
-    ``query.storage_gb_per_token`` is theta_i (converted at input under D-0009);
+    ``query.storage_gb_per_token`` is theta_i (converted to GB/token at input);
     ``query.total_tokens`` is r_i; ``query.arrival_rate_per_hour`` is lambda_i;
     ``state.routing_fractions`` supplies x. The result is GB/hour, without a horizon.
     """
@@ -114,7 +114,7 @@ def compute_storage_capacity_residuals(
     instance: ProblemInstance,
     state: PlacementDecisionState,
 ) -> tuple[QueryStorageCapacityDiagnostic, ...]:
-    """Return storage-capacity diagnostics per query (v2 Eq. 8h, D-0016).
+    """Return storage-capacity diagnostics per query (v2 Eq. 8h).
 
     Compute ``model_storage_usage_gb = sum_(j,k) B_j*z[i,j,k]`` and
     ``data_storage_rate_gb_per_hour = sum_(j,k) theta_i*r_i*lambda_i*x[i,j,k]``.

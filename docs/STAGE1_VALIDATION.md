@@ -1,21 +1,21 @@
 # Stage-1 verification checkpoint
 
-Verification on 2026-10-11 covers domain records, equations, independent
+Verification covers domain records, equations, independent
 validation, `P_DM`, M1–M3, GH and complete AGH. The publication manifest identifies
 the tested delivery.
 
-The D-0101 tests compare hand-derived KV concurrency, resident storage, budget
+The tests compare hand-derived KV concurrency, resident storage, budget
 costs and period delay with the plain equations, M2 and Pyomo expressions. Tiny
 analytical optima provide independent solver references, while GH and AGH
 results pass the common placement validator. Literal fixtures preserve the
 established regression values under their explicit convention.
 
-The stable implementation passed these checks on 2026-10-11:
+The verified implementation passes the following checks:
 
 | Check | Result | Time |
 |---|---|---|
-| Stage-1 publication with licensed Gurobi | 647 tests passed | 4.405 s |
-| Installed wheel with base dependencies | 643 tests run; 641 passed, 2 optional Gurobi skips | 3.906 s |
+| Stage-1 publication with licensed Gurobi | 647 tests passed | 3.768 s |
+| Installed wheel with base dependencies | 643 tests run; 641 passed, 2 optional Gurobi skips | 3.077 s |
 
 Both runs completed successfully. The counts differ because an unavailable
 Gurobi backend skips its test class before method discovery. HiGHS coverage

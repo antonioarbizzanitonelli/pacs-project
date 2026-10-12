@@ -75,7 +75,7 @@ class DeterministicAGHOrderingTests(unittest.TestCase):
         validate.assert_called_once_with(instance)
         self.assertEqual(len(result), 8)
 
-    """Pin the approved eight-spec sequence and exact hand-derived orders."""
+    """Pin the eight-spec sequence and exact hand-derived orders."""
 
     def test_public_specs_have_exact_approved_sequence(self):
         observed = tuple(

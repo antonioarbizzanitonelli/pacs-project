@@ -34,7 +34,7 @@ TIER = "gpu_basic_fp16"
 
 
 def make_infeasible_gh_instance():
-    """Build the hand-derived D-0039 error-SLO failure fixture."""
+    """Build the hand-derived frozen-candidate-batch error-SLO failure fixture."""
 
     base = make_minimal_tiny_instance()
     query = replace(

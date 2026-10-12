@@ -237,8 +237,8 @@ def make_heterogeneous_tiny_instance() -> ProblemInstance:
 def make_heterogeneous_solve_tiny_instance() -> ProblemInstance:
     """Return the 2x2x2 fixture with arrival rates of 36 and 12 queries/hour.
 
-    D-0031 originally scaled these rates for exact validation of HiGHS output.
-    D-0076 now tolerates the observed ``3e-12`` McCormick undershoot by default;
+    These rates were originally scaled for exact validation of HiGHS output.
+    The default McCormick tolerance accepts the observed ``3e-12`` undershoot;
     this separate fixture retains its original inputs.
     """
 

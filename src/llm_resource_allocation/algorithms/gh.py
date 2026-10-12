@@ -270,7 +270,7 @@ def canonicalize_gh_phase2_state(
     """Materialize final GH state on the authoritative ``P_DM`` lattice.
 
     Copy sparse routes to ``x`` with absent entries zero and copy ``u`` directly.
-    Set ``z=1[x>0]``; final deployments define ``q,w,y`` and ``v=x*w`` (D-0041).
+    Set ``z=1[x>0]``; final deployments define ``q,w,y`` and ``v=x*w``.
     Values are never clipped, normalized, recomputed from demand balance, or
     repaired. Unsupported configurations are excluded by the tier lattice.
     """
@@ -293,7 +293,7 @@ def run_gh(
     """Run both GH phases, materialize decisions, and independently validate once.
 
     Retain construction completion and scientific feasibility separately, with
-    budget/demand audits and no repair of the literal final state (D-0041).
+    budget/demand audits and no repair of the literal final state.
     """
 
     validate_problem_instance(instance)

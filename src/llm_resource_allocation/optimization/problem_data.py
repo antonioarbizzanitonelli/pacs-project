@@ -122,7 +122,7 @@ class PdmConstraintCounts:
     """Count reference constraints before solver presolve (v2 Eqs. 7-8).
 
     Eq. (8k), ``0 <= x <= z <= q``: two rows plus one x lower bound.
-    ``eq_8h_d_0016`` counts per-query storage constraints (D-0016);
+    ``eq_8h_d_0016`` counts per-query storage constraints;
     ``mccormick_inequalities`` counts four rows per v key, including ``v >= 0``.
     """
 

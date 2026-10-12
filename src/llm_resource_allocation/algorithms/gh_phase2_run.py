@@ -110,7 +110,7 @@ def run_gh_phase2(
     Evaluate each query at its current entry state, then use the frozen traversal
     and carry its final state into the next query. Routing, deployments, GPU
     counts, query dynamics, and C1-C3 budget persist through commit transitions.
-    Residual demand or an empty ranking does not stop later queries (D-0040).
+    Residual demand or an empty ranking does not stop later queries.
     """
 
     validate_problem_instance(instance)

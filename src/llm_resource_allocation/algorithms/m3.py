@@ -31,7 +31,7 @@ class M3EvaluationState:
     """Store active configuration and remaining M3 rental budget (v2 Eq. 12).
 
     ``current_configuration=None`` marks an inactive pair; otherwise ``y=n*m``.
-    The budget is in USD and may be negative; no clipping is applied (D-0034).
+    The budget is in USD and may be negative; no clipping is applied.
     """
 
     current_configuration: ParallelismConfig | None
@@ -186,7 +186,7 @@ def select_m3_parallelism_upgrade(
 
     M3 applies when the current delay exceeds ``Delta_i``. Eligible shapes satisfy
     ``n*m > y[j,k]``, ``D_cfg <= Delta_i``, and
-    ``DeltaT*p_gpu[k]*(n*m-y[j,k]) <= state.remaining_budget_usd`` (D-0034).
+    ``DeltaT*p_gpu[k]*(n*m-y[j,k]) <= state.remaining_budget_usd``.
     Delay is in seconds and rental cost is in USD; only incremental GPU rental
     is charged. All tier-valid shapes retain diagnostics in tier order, and
     exact GPU-count ties retain the first feasible shape.

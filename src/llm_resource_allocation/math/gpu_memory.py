@@ -1,6 +1,6 @@
 """Per-GPU model and KV-memory diagnostics under the instance unit convention.
 
-Compare model-shard and KV terms with ``C_gpu[k]*q[j,k]``. D-0002 expands
+Compare model-shard and KV terms with ``C_gpu[k]*q[j,k]``. Linearize
 the printed product using supplied auxiliaries v for x*w. Coherent units add
 arrival rate times request residency to account for mean KV-cache occupancy;
 literal units retain the historical printed term.
@@ -118,7 +118,7 @@ def compute_gpu_memory_residuals(
     instance: ProblemInstance,
     state: PlacementDecisionState,
 ) -> tuple[GpuMemoryDiagnostic, ...]:
-    """Compare model and KV terms with ``C_gpu[k]*q[j,k]`` (v2 Eq. 8f, D-0002).
+    """Compare model and KV terms with ``C_gpu[k]*q[j,k]`` (v2 Eq. 8f).
 
     Return one diagnostic per model/tier pair in instance order, with
     ``slack = C_gpu[k]*q[j,k] - printed_memory_lhs``. Capacity is per GPU.

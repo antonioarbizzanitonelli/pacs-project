@@ -257,7 +257,7 @@ class AGHRelocateAcceptanceTests(unittest.TestCase):
 
 
 class AGHRelocateMappingTests(unittest.TestCase):
-    """Protect the exact approved x/z/q/u/w/y/v mapping."""
+    """Protect the exact x/z/q/u/w/y/v mapping."""
 
     def test_complete_fraction_moves_and_no_partial_source_remains(self):
         instance = make_relocate_instance()

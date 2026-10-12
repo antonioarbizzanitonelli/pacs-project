@@ -5,7 +5,7 @@ from math import isfinite
 from numbers import Real
 
 
-# Implementation choice (D-0025), separate from solver feasibility tolerances.
+# Objective-agreement tolerance, separate from solver feasibility tolerances.
 DEFAULT_OBJECTIVE_COMPARISON_ABSOLUTE_TOLERANCE = 1e-8
 
 

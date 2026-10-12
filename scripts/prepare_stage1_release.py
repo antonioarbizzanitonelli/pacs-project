@@ -58,7 +58,7 @@ def git_blob(revision: str, path: str) -> bytes:
 
 
 def project_coherent_fixture_export(payload: bytes) -> bytes:
-    """Extend the published initializer with the approved coherent tiny fixture."""
+    """Extend the published initializer with the coherent tiny fixture."""
 
     text = payload.decode("utf-8")
     markers = (

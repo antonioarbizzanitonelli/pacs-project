@@ -139,7 +139,7 @@ class RawPdmSolution:
 
 @dataclass(frozen=True, slots=True)
 class SolutionNormalizationTolerances:
-    """Set domain-normalization tolerances, separate from feasibility (D-0022).
+    """Set domain-normalization tolerances, separate from feasibility.
 
     Defaults: ``1e-7`` binary/integer distance; ``1e-9`` bound clipping.
     """
@@ -394,7 +394,7 @@ def normalize_raw_pdm_solution(
 
     Snap nearby binaries/GPU counts and clip continuous bound excursions within
     their tolerances. Scientific relationships, including ``v=x*w``, remain for
-    independent validation (D-0022).
+    independent validation.
     """
 
     if not isinstance(raw_solution, RawPdmSolution):

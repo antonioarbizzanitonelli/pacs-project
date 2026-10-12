@@ -137,7 +137,7 @@ def _transfer_route(
     x[source] = 0.0
     x[destination_route] = x[destination_route] + moved_fraction
 
-    # Positive-route admission: z=1 exactly when x>0 (D-0041).
+    # Positive-route admission: z=1 exactly when x>0.
     z = {
         key: placement_before.admission_indicators.get(key, 0.0)
         for key in lattices.route_keys

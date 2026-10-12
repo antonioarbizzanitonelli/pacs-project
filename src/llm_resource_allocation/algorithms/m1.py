@@ -48,7 +48,7 @@ class M1ConfigurationDiagnostic:
 class M1SelectionResult:
     """Store the M1 selection and all diagnostics in tier-semantic order.
 
-    ``selected_configuration=None`` marks an infeasible candidate (D-0032).
+    ``selected_configuration=None`` marks an infeasible candidate.
     """
 
     query_id: str
@@ -108,7 +108,7 @@ def select_minimum_feasible_parallelism(
     in seconds. Delay uses ``compute_configuration_delay_seconds``; the printed
     weight term omits ``nu_k``. Only ``tier.parallelism_configs`` are evaluated.
     Exact GPU-count ties retain tier order; no feasible shape returns ``None``
-    with every diagnostic retained (D-0032).
+    with every diagnostic retained.
     """
 
     validate_problem_instance(instance)

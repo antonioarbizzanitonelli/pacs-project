@@ -173,7 +173,7 @@ class AGHRelocatePassTraversalTests(unittest.TestCase):
         result = run_agh_relocate_pass(instance, before)
 
         # By hand, C2 falls by 0.001 for ``first`` but would fall by 0.003
-        # for ``best``.  The approved policy deliberately takes the former.
+        # for ``best``.  The scan accepts the first qualifying placement.
         self.assertAlmostEqual(result.total_objective_improvement, 0.001)
         self.assertEqual(
             result.source_traces[0].accepted_destination,
