@@ -1,20 +1,20 @@
 {
   "format_version": 1,
   "scope": "Python Stage-1 reference: P_DM, M1-M3, GH and complete AGH",
-  "allowlist_sha256": "91ac479110110150fd1d619212442ebfc3b1fc2c80fba0c2a32665e473efa20c",
-  "file_count": 113,
+  "allowlist_sha256": "ef082fa31c0519fe06e28ea70f0b35f12bbbebc76dd7d59c291873e34450ebff",
+  "file_count": 139,
   "files": [
     {
       "path": ".gitattributes",
-      "bytes": 239,
-      "sha256": "d7a2e9fc687ffa09ac806761db082c83e13b31acf58387b48b02c54e0cf83dc5",
+      "bytes": 288,
+      "sha256": "b650be9246048ab8a6a4cb4947ca44e2c856b30fde42ef435abf846ddc679d98",
       "source": "workspace",
       "text_normalization": "lf"
     },
     {
       "path": ".github/workflows/stage1.yml",
-      "bytes": 815,
-      "sha256": "f7716a66115a871cd7f4128cb9ca8b23afc20e137a9de74e5be056e053bff446",
+      "bytes": 988,
+      "sha256": "4594041ce086116ce7c09b46927e28238681f0025d88e12df6e4e9177c8b0273",
       "source": "workspace",
       "text_normalization": "lf"
     },
@@ -27,43 +27,142 @@
     },
     {
       "path": "README.md",
-      "bytes": 3210,
-      "sha256": "12e308550cf94aa421b692a83b805b7ce6f0a30dff478fc2d0c5c76009a0f39b",
+      "bytes": 4694,
+      "sha256": "3eec18e5b281f7dd776a89c44d18ea8cf2f8643ad6f1fa8dad4631c84f2cc821",
       "source": "workspace",
       "text_normalization": "lf"
     },
     {
+      "path": "benchmarks/reference/evidence.jsonl.gz",
+      "bytes": 3697370,
+      "sha256": "708ff431a3dbd4b4fb96a05582885ff5e0e5a0e0dbed3903853bbc637c2a7ee2",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/reference/manifest.json",
+      "bytes": 2330653,
+      "sha256": "cbb16c85076df1b614c94bcdf95458e197ccd567ba4ed323867186b958f9bdf6",
+      "source": "workspace",
+      "text_normalization": "lf"
+    },
+    {
+      "path": "benchmarks/reference/plots/acceptance.png",
+      "bytes": 151678,
+      "sha256": "d554283c453b906465cf77d03f2fca92a4902e6e80df9dcbc6b926f12ba685f6",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/reference/plots/acceptance.svg",
+      "bytes": 35811,
+      "sha256": "07ea66e0a3e823d19b70fde93c86bbaa1e1986641944a8348d580d1bcac31d7a",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/reference/plots/objective_and_gap.png",
+      "bytes": 160994,
+      "sha256": "2d34537563f2c5083961e9a220da089c0249f0f589316ef6c5c2eacea4c79529",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/reference/plots/objective_and_gap.svg",
+      "bytes": 39209,
+      "sha256": "4c1648dffe571d876dd94d1f0fffa09b3e1e2da07477408000393b72a3ffeb42",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/reference/plots/objective_components.png",
+      "bytes": 143502,
+      "sha256": "65609b77fbd210d9917e3ea79937e097cea9b0cf2191c492a1f3da9a9fd57985",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/reference/plots/objective_components.svg",
+      "bytes": 51996,
+      "sha256": "d8006cfcb51fb4ce804213d3e69801c6c038c301a0524413f3fdaf30e6aaaa15",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/reference/plots/runtime.png",
+      "bytes": 89257,
+      "sha256": "8703b8056a68a4d05cd456fde3562bd609dde2d25d6b8c2f5610b07b48b70122",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/reference/plots/runtime.svg",
+      "bytes": 41213,
+      "sha256": "cb50aa1dc37ee6b6e7b448b2b0c6e0a1bf95af36d8bd9670bbd1a031a2c0680e",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/reference/query_metrics.csv",
+      "bytes": 49739,
+      "sha256": "ba1385b2bf5dc12db2968e36f44651f22453ffe8e09300fec74ceb82b281247a",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/reference/runs.csv",
+      "bytes": 29256,
+      "sha256": "9385a1a3ee45c7f67106aec376bd6d3b5306bd956ee9ca3dd9338a4e4539957c",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/reference/source_snapshot.zip",
+      "bytes": 238796,
+      "sha256": "d7c5528126a4d4124d561f1fd260ecb07777194628a424ae850e76e8ad149a68",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/reference/summary.csv",
+      "bytes": 5340,
+      "sha256": "5a4f39346ca9be2d0c0ffaeac2249776482ea27a6c1eebb6963da67893ab6ce0",
+      "source": "workspace"
+    },
+    {
       "path": "configs/stage1_publication.json",
-      "bytes": 5136,
-      "sha256": "91ac479110110150fd1d619212442ebfc3b1fc2c80fba0c2a32665e473efa20c",
+      "bytes": 6422,
+      "sha256": "ef082fa31c0519fe06e28ea70f0b35f12bbbebc76dd7d59c291873e34450ebff",
+      "source": "workspace",
+      "text_normalization": "lf"
+    },
+    {
+      "path": "configs/synthetic_benchmark.json",
+      "bytes": 2227,
+      "sha256": "89ef67141ceb34a8af82abe7f60a160ac7f1aa7ec0cf9c3122a04a65801b2f72",
+      "source": "workspace",
+      "text_normalization": "lf"
+    },
+    {
+      "path": "configs/synthetic_benchmark_smoke.json",
+      "bytes": 471,
+      "sha256": "d91c7b74c27fd863d36b46aa82c7ab47241a277a3de79a4701dbe11d0e658d9a",
+      "source": "workspace",
+      "text_normalization": "lf"
+    },
+    {
+      "path": "docs/BENCHMARKS.md",
+      "bytes": 14573,
+      "sha256": "53bb59bded44ce97e99889f56b632a495547fe08e769f377b36e1d07e9ca11ee",
       "source": "workspace",
       "text_normalization": "lf"
     },
     {
       "path": "docs/GITHUB_PREPARATION.md",
-      "bytes": 4269,
-      "sha256": "5534f9c06ffcf63f770a24433fcdd428e80353b15e2c1e89e738445d43bf961e",
+      "bytes": 4581,
+      "sha256": "781df371af6f4c1bfbcd1d6a506960e3a3cfc5f6dec16905c05bbbebc428a99a",
       "source": "workspace",
       "text_normalization": "lf"
     },
     {
       "path": "docs/STAGE1_GUIDE.md",
-      "bytes": 5699,
-      "sha256": "4d9c0615d32f103e12698e2d85f83c1620eec56ad84d5ff82a0d16a54f801725",
+      "bytes": 5950,
+      "sha256": "18b864d232281b4b89a74b58882f34958eb72d3418e224269f4aa72487f274f2",
       "source": "workspace",
       "text_normalization": "lf"
     },
     {
       "path": "docs/STAGE1_VALIDATION.md",
-      "bytes": 3367,
-      "sha256": "7082e944630a2fa36b4db106b5bd9bdc45ee7e6e1d2cc86e9bd93766dedd133f",
-      "source": "workspace",
-      "text_normalization": "lf"
-    },
-    {
-      "path": "docs/stage1_checkpoint.json",
-      "bytes": 13389,
-      "sha256": "765b7b8a61445f9a7088be06a46537cb22ebf078da711ef74b34655f2f49159a",
+      "bytes": 4142,
+      "sha256": "a1f2cd09546b0460ac1a1cc0e449b3bb247d5f20adedd67d54af0cf0be5bf242",
       "source": "workspace",
       "text_normalization": "lf"
     },
@@ -71,6 +170,13 @@
       "path": "docs/UNITS.md",
       "bytes": 4426,
       "sha256": "f50f49a46d12a51ebdbb2df539d3d5bccc52afa2a7e201f10361e707cf1a1843",
+      "source": "workspace",
+      "text_normalization": "lf"
+    },
+    {
+      "path": "docs/stage1_checkpoint.json",
+      "bytes": 14833,
+      "sha256": "a98c133db03b76a2d3d1086e0b6d8ba99215c77de91b93a80f62a55fb51e557b",
       "source": "workspace",
       "text_normalization": "lf"
     },
@@ -89,9 +195,23 @@
       "text_normalization": "lf"
     },
     {
+      "path": "scripts/plot_synthetic_benchmark.py",
+      "bytes": 13718,
+      "sha256": "ff19933f1d07a7160dfccb59d4b33b173d17ef179f63a52bba63f630a4776afb",
+      "source": "workspace",
+      "text_normalization": "lf"
+    },
+    {
       "path": "scripts/prepare_stage1_release.py",
       "bytes": 10591,
       "sha256": "635509517ea7f7b9159f4512446e12d0480497525f4ed71e1978da3d6c51d16a",
+      "source": "workspace",
+      "text_normalization": "lf"
+    },
+    {
+      "path": "scripts/run_synthetic_benchmark.py",
+      "bytes": 9388,
+      "sha256": "7059c90c071c65ed905ccd721db25ba5232579a7cfcd23e98bc43ddf5099c846",
       "source": "workspace",
       "text_normalization": "lf"
     },
@@ -250,6 +370,20 @@
       "text_normalization": "lf"
     },
     {
+      "path": "src/llm_resource_allocation/data/scaling_experiment_instances.py",
+      "bytes": 9890,
+      "sha256": "15979b2e843126cf35bb8bfbbc3f37f2a3b87d4b3b4ba9babc03c5b453e4cf9b",
+      "source": "workspace",
+      "text_normalization": "lf"
+    },
+    {
+      "path": "src/llm_resource_allocation/data/synthetic_benchmark_instances.py",
+      "bytes": 7568,
+      "sha256": "921a5713972c8c7820c3ca1f154e6b4fc1ab0c610446692ea9ee1e94417a8b91",
+      "source": "workspace",
+      "text_normalization": "lf"
+    },
+    {
       "path": "src/llm_resource_allocation/data/tiny_instances.py",
       "bytes": 9447,
       "sha256": "922b191680f1da56657371e3917217508b531f9d0fd5747ddb780b9ad1bf9493",
@@ -281,6 +415,20 @@
       "path": "src/llm_resource_allocation/domain/validation.py",
       "bytes": 10312,
       "sha256": "8222721e9289d3fa94ecbad34c2252f38afe2a5f530dc952e54fefbde434ab57",
+      "source": "workspace",
+      "text_normalization": "lf"
+    },
+    {
+      "path": "src/llm_resource_allocation/experiments/__init__.py",
+      "bytes": 75,
+      "sha256": "0d1ec583b3b4f5c732a7a2111cb58e5ec78bb3b0ed9cf648ec3529d77cedd2e2",
+      "source": "workspace",
+      "text_normalization": "lf"
+    },
+    {
+      "path": "src/llm_resource_allocation/experiments/synthetic_benchmark.py",
+      "bytes": 25550,
+      "sha256": "acecdec45c9fc029c5b6b5de88d73df03750f3cdc69ca204ee70282fbee50989",
       "source": "workspace",
       "text_normalization": "lf"
     },
@@ -740,6 +888,13 @@
       "text_normalization": "lf"
     },
     {
+      "path": "tests/test_scaling_experiment_instances.py",
+      "bytes": 4243,
+      "sha256": "6379654065e8cf26801b432add89076ae63cfd8b8c3c864ad6387d90fd39098c",
+      "source": "workspace",
+      "text_normalization": "lf"
+    },
+    {
       "path": "tests/test_solver.py",
       "bytes": 18419,
       "sha256": "63b3c5f237bc2792809a8b1aff9daa31c9303f924448cb5973c7688c96b06dbd",
@@ -757,6 +912,20 @@
       "path": "tests/test_storage_capacity.py",
       "bytes": 16423,
       "sha256": "52a37d75e0c61d0772ab723707263eeee4bc092d176ffc22bea98a522820e2fa",
+      "source": "workspace",
+      "text_normalization": "lf"
+    },
+    {
+      "path": "tests/test_synthetic_benchmark.py",
+      "bytes": 9305,
+      "sha256": "82dfde6930db4ea076cc83df33edab08f9c421f663b5c2fa2f465b0f99bee5cb",
+      "source": "workspace",
+      "text_normalization": "lf"
+    },
+    {
+      "path": "tests/test_synthetic_benchmark_cli.py",
+      "bytes": 6939,
+      "sha256": "9fef41552ef5b8ae57007bfaf138ef32a4ede1bc5c8b7214c1e1c77735e121c7",
       "source": "workspace",
       "text_normalization": "lf"
     },

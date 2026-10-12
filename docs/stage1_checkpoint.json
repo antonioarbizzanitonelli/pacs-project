@@ -1,6 +1,6 @@
 {
   "format_version": 1,
-  "scope": "Python Stage-1: P_DM, M1-M3, GH and complete AGH; synthetic verification",
+  "scope": "Python Stage-1: P_DM, M1-M3, GH, complete AGH and coherent synthetic benchmarks",
   "unit_policy": "Coherent units by default; historical fixtures explicitly select literal arithmetic",
   "runs": [
     {
@@ -13,15 +13,15 @@
       "gurobi_enabled": true,
       "installed_package": false,
       "exit_code": 0,
-      "test_count": 647,
-      "unittest_seconds": 3.768,
+      "test_count": 668,
+      "unittest_seconds": 7.699,
       "summary": [
         "----------------------------------------------------------------------",
-        "Ran 647 tests in 3.768s",
+        "Ran 668 tests in 7.699s",
         "",
         "OK"
       ],
-      "compiled_files": 102,
+      "compiled_files": 111,
       "source_hashes_stable": true
     },
     {
@@ -34,25 +34,27 @@
       "gurobi_enabled": false,
       "installed_package": true,
       "exit_code": 0,
-      "test_count": 643,
-      "unittest_seconds": 3.077,
+      "test_count": 664,
+      "unittest_seconds": 5.148,
       "summary": [
         "----------------------------------------------------------------------",
-        "Ran 643 tests in 3.077s",
+        "Ran 664 tests in 5.148s",
         "",
-        "OK (skipped=2)"
+        "OK (skipped=3)"
       ],
-      "compiled_files": 102,
+      "compiled_files": 111,
       "source_hashes_stable": true
     }
   ],
-  "installed_library_files_matching_export_after_lf": 53,
+  "installed_library_files_matching_export_after_lf": 57,
   "pip_check": "No broken requirements found",
-  "quickstart": "GH accepted; six-start AGH accepted; HiGHS P_DM accepted with optimal termination",
+  "quickstart": "Installed wheel: GH accepted; six-start AGH accepted; HiGHS P_DM accepted with optimal termination",
   "standalone_export_check_passed": true,
   "source_sha256": {
     "examples/stage1_quickstart.py": "ffbe07c161ed99956a0d94a80490eb135234febb4a77098ac6a64afdfbf252b6",
+    "scripts/plot_synthetic_benchmark.py": "ff19933f1d07a7160dfccb59d4b33b173d17ef179f63a52bba63f630a4776afb",
     "scripts/prepare_stage1_release.py": "635509517ea7f7b9159f4512446e12d0480497525f4ed71e1978da3d6c51d16a",
+    "scripts/run_synthetic_benchmark.py": "7059c90c071c65ed905ccd721db25ba5232579a7cfcd23e98bc43ddf5099c846",
     "src/llm_resource_allocation/__init__.py": "64f2cbc50ed57b5ff70657006f1c77ced84748747ac2b3664bfc6cafadcda312",
     "src/llm_resource_allocation/algorithms/__init__.py": "c38ffe3c42ec76b2696955bf166eb4d44e7282c8a6b0428190a1032e8f6615d2",
     "src/llm_resource_allocation/algorithms/_agh_placement_ops.py": "69f4904fa31749345a32006f195b3af65884b7787bcb38f50e34edbb3aa55a79",
@@ -75,11 +77,15 @@
     "src/llm_resource_allocation/algorithms/m3.py": "383154c55f8643bffad43943f18818536e13718a69993d64442904f89736eb4c",
     "src/llm_resource_allocation/algorithms/phase1.py": "6782307ee5ccf5542ea6d66e3ad671b1c944541e0bce8e11a048d43aaf4e1935",
     "src/llm_resource_allocation/data/__init__.py": "1e0cff1d192342ee743d3330f593261b29b55f7b41dcb37939c3fe851fa96e61",
+    "src/llm_resource_allocation/data/scaling_experiment_instances.py": "15979b2e843126cf35bb8bfbbc3f37f2a3b87d4b3b4ba9babc03c5b453e4cf9b",
+    "src/llm_resource_allocation/data/synthetic_benchmark_instances.py": "921a5713972c8c7820c3ca1f154e6b4fc1ab0c610446692ea9ee1e94417a8b91",
     "src/llm_resource_allocation/data/tiny_instances.py": "922b191680f1da56657371e3917217508b531f9d0fd5747ddb780b9ad1bf9493",
     "src/llm_resource_allocation/domain/__init__.py": "27fa6becb7600a7473b924365eab6ef97b735e6a2dcc347a0aeddd219270c94e",
     "src/llm_resource_allocation/domain/types.py": "dad32dbd56cc61546db67cee6e3e60407c381e515e34a3e59fefcd7eb8d549ec",
     "src/llm_resource_allocation/domain/units.py": "6f45e8ffb080d0dfa498530f36ec6d7c005a2680374a4320549016812945a9c7",
     "src/llm_resource_allocation/domain/validation.py": "8222721e9289d3fa94ecbad34c2252f38afe2a5f530dc952e54fefbde434ab57",
+    "src/llm_resource_allocation/experiments/__init__.py": "0d1ec583b3b4f5c732a7a2111cb58e5ec78bb3b0ed9cf648ec3529d77cedd2e2",
+    "src/llm_resource_allocation/experiments/synthetic_benchmark.py": "acecdec45c9fc029c5b6b5de88d73df03750f3cdc69ca204ee70282fbee50989",
     "src/llm_resource_allocation/math/__init__.py": "dde0a0f89b514fa96269662aeb216f1b8efaff0d839b8e0a0ad2feda76c3f72f",
     "src/llm_resource_allocation/math/budget.py": "81761b6e12437ef048d5d0f6163b436ca13457f29037f218bd5ca6af8b93ee9e",
     "src/llm_resource_allocation/math/compute_capacity.py": "0f14d8a5bf4f4a6bb2270bdb10e28cd30b8b417e7b7b1b5e05f0cf4d8715681c",
@@ -145,9 +151,12 @@
     "tests/test_processing_delay.py": "dbd897108fb89397ec64a8d9f52d528466d544848d6ce76a2b8529e4df1e59c5",
     "tests/test_pyomo_pdm.py": "10c1bbfe4ec4dd97153652507cb4924d81287d8f4448cd164ae07439ebf0f5bd",
     "tests/test_routing.py": "461fa4ee53bea9b251d0bcedcc82e76c39a84a0bc64f9771c850e8f31d18a4a9",
+    "tests/test_scaling_experiment_instances.py": "6379654065e8cf26801b432add89076ae63cfd8b8c3c864ad6387d90fd39098c",
     "tests/test_solver.py": "63b3c5f237bc2792809a8b1aff9daa31c9303f924448cb5973c7688c96b06dbd",
     "tests/test_stage1_imports.py": "2e22cc868da7338bf9816a5a82f6913a3b51dd01aeabf6b41495eac0a3c96662",
     "tests/test_storage_capacity.py": "52a37d75e0c61d0772ab723707263eeee4bc092d176ffc22bea98a522820e2fa",
+    "tests/test_synthetic_benchmark.py": "82dfde6930db4ea076cc83df33edab08f9c421f663b5c2fa2f465b0f99bee5cb",
+    "tests/test_synthetic_benchmark_cli.py": "9fef41552ef5b8ae57007bfaf138ef32a4ede1bc5c8b7214c1e1c77735e121c7",
     "tests/test_tiny_enumeration.py": "f161d53899e5ea74e5b964ec3190ded1299ce1db795ddcdf5eeab7fb4e99b3bf",
     "tests/test_tiny_instances.py": "1975766bb2575c39eccd7ed0d2d45c0f56c38a0d68e8203879ebfbcbba7fb2a5",
     "tests/test_units.py": "6ea662b76f940f14b79a7efbb4b39e8437231bb14464a9a94da7d098aae63e50",
@@ -155,5 +164,13 @@
     "tests/test_validation_tolerances.py": "0f554923cf4bd06e91287a6db3c7e40bfe7bc061087f6e112d0e051158016666"
   },
   "local_checkpoint_excludes_hosted_ci": true,
-  "hosted_ci_results_url": "https://github.com/antonioarbizzanitonelli/pacs-project/actions/workflows/stage1.yml"
+  "hosted_ci_results_url": "https://github.com/antonioarbizzanitonelli/pacs-project/actions/workflows/stage1.yml",
+  "bounded_benchmark": "Base dependency environment: three accepted attempts; source captured before scientific imports",
+  "synthetic_benchmark": {
+    "measured_attempts": 72,
+    "warmup_attempts": 24,
+    "measured_accepted": 72,
+    "measured_pdm_optimal": 6,
+    "measured_pdm_feasible_nonoptimal": 18
+  }
 }

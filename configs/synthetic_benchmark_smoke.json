@@ -1,0 +1,26 @@
+{
+  "backend": "highs",
+  "paper_version": "v2",
+  "gh_budget_fraction": 0.8,
+  "data_residency_hours": 1.0,
+  "seeds": [
+    37
+  ],
+  "warmup_repeats": 0,
+  "solver_time_limit_seconds": 5.0,
+  "query_counts": [],
+  "case_specs": [
+    {
+      "case_id": "nominal_2x2x2",
+      "family": "nominal",
+      "dimensions": [
+        2,
+        2,
+        2
+      ],
+      "load_multiplier": 1.0,
+      "delay_slo_multiplier": 1.0,
+      "budget_multiplier": 1.0
+    }
+  ]
+}

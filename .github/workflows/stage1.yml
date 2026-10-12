@@ -27,5 +27,7 @@ jobs:
         run: python -m unittest discover -s tests -q
       - name: Run the public API example
         run: python examples/stage1_quickstart.py
+      - name: Run the bounded benchmark
+        run: python scripts/run_synthetic_benchmark.py --config configs/synthetic_benchmark_smoke.json --output results/ci-benchmark
       - name: Verify the publication manifest
         run: python scripts/prepare_stage1_release.py --check

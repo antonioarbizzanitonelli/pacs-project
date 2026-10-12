@@ -6,6 +6,9 @@ documentation. Use its explicit file manifest to prepare a reviewable commit.
 The explicit [allowlist](../configs/stage1_publication.json) contains the
 source/test paths, documentation, example, CI workflow and exporter. New
 publication files require an explicit change to this list.
+It also includes benchmark configurations, runners and the recorded synthetic
+comparison under `benchmarks/reference/`, with compressed evidence and a frozen
+source archive.
 
 ## Build a reviewable tree
 
@@ -63,9 +66,10 @@ Activate the environment, then run:
 python -m pip install -e .
 python -m unittest discover -s tests -q
 python examples/stage1_quickstart.py
+python scripts/run_synthetic_benchmark.py --config configs/synthetic_benchmark_smoke.json --output results/ci-benchmark
 ```
 
-The GitHub workflow runs the same regression/example with Python 3.13 and 3.14
+The GitHub workflow runs the regression, example and bounded benchmark with Python 3.13 and 3.14
 using HiGHS. Optional Gurobi integration skips when it is unavailable. The
 regression must run against the actual delivered tree. Record actual results in
 [STAGE1_VALIDATION.md](STAGE1_VALIDATION.md), then rebuild so the final

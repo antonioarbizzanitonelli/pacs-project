@@ -53,6 +53,7 @@ part of its experimental provenance.
 | AGH | [algorithms/agh.py](../src/llm_resource_allocation/algorithms/agh.py), then `agh_start.py` | Ordering, GH construction, relocate, consolidation and multi-start selection. |
 | Exact solve | [optimization/pdm_run.py](../src/llm_resource_allocation/optimization/pdm_run.py) | Model construction, backend execution, extraction and independent acceptance. |
 | Independent tiny oracle | [verification/tiny_enumeration.py](../src/llm_resource_allocation/verification/tiny_enumeration.py) | Analytic reference for the supported 1×1×1 scope. |
+| Synthetic comparison | [experiments/synthetic_benchmark.py](../src/llm_resource_allocation/experiments/synthetic_benchmark.py), [benchmark guide](BENCHMARKS.md) | Shared instances, measured attempts, solver evidence and accepted-result summaries. |
 
 Both execution paths return a placement that is checked independently:
 

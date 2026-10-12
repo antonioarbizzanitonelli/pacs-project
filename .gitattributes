@@ -7,8 +7,11 @@
 *.json text eol=lf
 *.yml text eol=lf
 *.yaml text eol=lf
+*.csv text eol=lf
+*.svg text eol=lf
 *.sh text eol=lf
 *.pdf binary
 *.png binary
 *.jpg binary
 *.gz binary
+*.zip binary

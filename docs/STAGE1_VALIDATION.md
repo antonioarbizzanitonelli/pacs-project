@@ -14,18 +14,20 @@ The verified implementation passes the following checks:
 
 | Check | Result | Time |
 |---|---|---|
-| Stage-1 publication with licensed Gurobi | 647 tests passed | 3.768 s |
-| Installed wheel with base dependencies | 643 tests run; 641 passed, 2 optional Gurobi skips | 3.077 s |
+| Stage-1 publication with licensed Gurobi and plots | 668 tests passed | 7.699 s |
+| Installed wheel with base dependencies | 664 tests run; 661 passed, 3 optional skips | 5.148 s |
 
 Both runs completed successfully. The counts differ because an unavailable
-Gurobi backend skips its test class before method discovery. HiGHS coverage
+Gurobi backend skips its test class before method discovery. The base run skips
+two optional Gurobi checks and one figure check requiring Matplotlib. HiGHS coverage
 remains active in both environments. Verification used Python 3.14.3, Pyomo
-6.10.0 and highspy 1.14.0; licensed tests also used gurobipy 13.0.3.
+6.10.0 and highspy 1.14.0; licensed tests also used gurobipy 13.0.3 and
+Matplotlib 3.11.2 for the optional figure check.
 
 Each regression runs `python -m unittest discover -s tests -q`, resolving the
 library from the exported source or the installed wheel, respectively.
-In-memory compilation covers all 102 publication Python files, whose SHA256
-inventories remained stable during testing. All 53 installed library files
+In-memory compilation covers all 111 publication Python files, whose SHA256
+inventories remained stable during testing. All 57 installed library files
 match the exported source after LF normalization. The
 [machine-readable checkpoint](stage1_checkpoint.json) retains that Python
 inventory and both run summaries; `stage1-manifest.json` records the final
@@ -37,11 +39,20 @@ accepted GH, six-start AGH and optimal `P_DM` output using HiGHS. A second revie
 confirmed consistent unit factors across plain math, M2, the symbolic model and
 the analytical oracle, together with the GH/AGH transition semantics.
 
+The bounded benchmark also completed three accepted attempts in the base
+environment. Focused checks cover case interpolation, coherent inputs, method
+acceptance, optimality-gap eligibility, summary statistics, immutable source
+capture and missing values. The figure check covers logarithmic runtime with
+zero observations, independent family scales and explicitly undefined gaps.
+The recorded [larger-instance campaign](BENCHMARKS.md) contains 24 excluded
+warmups and 72 accepted measured attempts. Its complete placements, validation
+reports, input/configuration hashes and source archive accompany the CSVs.
+
 Hand-derived cases isolate binding memory, storage and budget constraints.
 Their HiGHS and licensed Gurobi optima agree with the independent tiny oracle.
 
 The local checkpoint covers Python 3.14.3. The GitHub workflow runs the regression,
-example and manifest check on Ubuntu with Python 3.13 and 3.14; results are
+example, bounded benchmark and manifest check on Ubuntu with Python 3.13 and 3.14; results are
 available in the repository's [CI history](https://github.com/antonioarbizzanitonelli/pacs-project/actions/workflows/stage1.yml).
 The final export retains the tested Python inventory and incorporates the
 completed documentation record.
