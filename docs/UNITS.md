@@ -1,4 +1,4 @@
-# Stage-1 units and scientific contract
+# Stage-1 units and dimensional consistency
 
 Stage-1 resource constraints and costs use consistent physical units. KV memory
 accounts for average concurrent requests, stored data has an explicit retention
@@ -31,9 +31,10 @@ with `unit_convention=UnitConvention.COHERENT` and the desired residency.
 | Delay penalty `ρ` | USD/(millisecond·request) |
 | Unmet penalty `φ` | USD/hour for an unmet fraction of one |
 
-`domain/units.py` owns 1,000,000 KB/GB, 1,000 GFLOP/TFLOP,
-1,000 milliseconds/second and 3,600 seconds/hour. KB/GB are decimal units,
-distinct from KiB/GiB. Convert footprints once at the input boundary.
+`domain/units.py` defines the conversion factors: 1,000,000 KB/GB,
+1,000 GFLOP/TFLOP, 1,000 milliseconds/second and 3,600 seconds/hour.
+KB/GB are decimal units, distinct from KiB/GiB. Convert footprints once at the
+input boundary.
 The legacy `seconds_per_hour` field remains configurable for old synthetic
 fixtures; coherent input validation requires exactly 3,600.
 
@@ -63,7 +64,9 @@ resource budget USD = C1+C2+C3 <= budget
 ```
 
 KV stock represents average occupancy under the supplied arrival rate and
-residency, `arrival/second * residency/seconds`. `T_res` is an explicit input.
+residency: the arrival rate in requests per second multiplied by the residence
+time in seconds gives the average number of concurrent requests. `T_res` is an
+explicit input.
 Data storage represents steady resident stock with lifetime `R`; setting `R=0`
 models immediate data deletion while admitted model weights remain in storage.
 
@@ -75,15 +78,16 @@ resident-data and period-delay factors in its marginal ranking cost.
 
 Coherent mode supports primary `PaperVersion.V2` and raises `ValueError` for V1.
 Literal mode supports both versions with their original C5 difference.
-Validation reports snapshot `unit_convention` and `data_residency_hours`.
+Validation reports record `unit_convention` and `data_residency_hours`.
 The diagnostic `printed_*` names remain for compatibility; coherent callers can
 read `memory_usage_gb`, `kv_memory_usage_gb`, `storage_usage_gb` and
 `data_storage_usage_gb`. The GB-only properties reject literal mixed-unit values.
 
-Unit factors belong to the scientific expressions. Acceptance tolerances
-classify the resulting residuals, and validation evaluates the supplied `v`
-directly. Solver tolerances, normalization, independent acceptance and strict
-objective improvement have separate contracts.
+Conversion factors are applied within the equations. Acceptance tolerances
+determine whether the resulting residuals are acceptable, and validation
+evaluates the supplied `v` directly. Separate numerical policies govern solver
+tolerances, normalization, independent acceptance and strict objective
+improvement.
 
 The one-hour default for data retention is a configurable model assumption.
 Changing it scales resident data and its storage cost through the same input

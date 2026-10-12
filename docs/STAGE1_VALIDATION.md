@@ -1,12 +1,12 @@
 # Stage-1 verification checkpoint
 
-Verification covers domain records, equations, independent
+Verification covers input and placement records, equations, independent
 validation, `P_DM`, M1–M3, GH and complete AGH. The publication manifest identifies
-the tested delivery.
+the tested files.
 
-The tests compare hand-derived KV concurrency, resident storage, budget
-costs and period delay with the plain equations, M2 and Pyomo expressions. Tiny
-analytical optima provide independent solver references, while GH and AGH
+The tests compare values derived by hand for KV concurrency, resident storage,
+budget costs and period delay charges with the equations, M2 and Pyomo
+expressions. Tiny analytical optima provide independent solver references, while GH and AGH
 results pass the common placement validator. Literal fixtures preserve the
 established regression values under their explicit convention.
 
@@ -51,12 +51,13 @@ objective-agreement threshold by floating-point roundoff. The benchmark guide
 records the two-ULP discrepancy and its diagnostic status. Each campaign retains
 complete placements, validation reports, input/configuration hashes and source.
 
-Eight hand-derived comparison tests verify matching inputs, snapshots and
-measurement schedules, accepted-only quality, incumbent/optimum distinctions,
-rejected results and CSV identity. Four plotting tests cover recorded input
-contracts and figure outcomes. An independent audit confirms all 72 matched
-attempt pairs and 48 summaries, identical scientific inputs/source, and exactly
-zero objective change for the 48 GH/AGH pairs. The comparison CLI also passes
+Eight comparison tests with expected values derived by hand check input,
+snapshot and measurement-schedule matching, exclusion of rejected objectives
+from quality summaries, the distinction between incumbents and optima, and CSV
+identity. Four plotting tests check input requirements and generated figures.
+An independent audit checks all 72 matched attempt pairs and 48 summary rows,
+confirming identical scientific inputs and source files and exactly zero
+objective change for the 48 GH/AGH pairs. The comparison CLI also passes
 in the base installation without invoking a licensed solver.
 
 Hand-derived cases isolate binding memory, storage and budget constraints.
@@ -71,8 +72,8 @@ completed documentation record.
 
 Immutable-property tests require assignment to be rejected and accept
 `FrozenInstanceError` or `TypeError`, reflecting the exceptions raised by the
-supported Python patch versions for frozen, slotted records. The record's
-immutability remains the tested contract.
+supported Python patch versions for frozen, slotted records. The tests verify
+that the records remain immutable.
 
 The standalone publication configuration passes the exporter's input check in
 a directory without Git history. Rebuilding the delivery reads the published

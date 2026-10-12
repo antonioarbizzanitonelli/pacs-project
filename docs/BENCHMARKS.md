@@ -124,8 +124,8 @@ lower for those cases. Larger cases reach the solver time limit in both
 campaigns. Their reported bounds leave large MIP gaps: at nominal load the
 median reported gaps are approximately 97.40–99.61% for HiGHS and 88.86–99.38%
 for Gurobi; accepted compute-pressure cases above 2×2×2 remain close to 100%.
-These bounds describe the remaining solver certificate, separately from a
-heuristic's gap against an accepted optimum.
+These MIP gaps measure the distance between the incumbent and the solver's
+bound. A heuristic's gap against an accepted optimum is reported separately.
 
 Gurobi finds lower accepted median incumbents on nominal 4×4×5, 6×6×10 and
 10×10×10. On nominal 10×10×10 its USD 724.02 incumbent is below GH's USD 1,151.06
@@ -144,11 +144,11 @@ USD 51,200,027.25219999. Their binary64 difference is
 the configured absolute agreement tolerance of `1e-8` USD. The warmup has the
 same outcome.
 
-The composed processing-delay calculation and its expanded model expression
-differ by one spacing. The audit does not precisely locate the remaining
-spacing within the native objective evaluation. The recorded acceptance policy
-is retained: these attempts contribute runtime and feasibility evidence, with
-0/3 accepted and 3/3 independently feasible. Their recomputed costs remain
+The processing-delay calculation and its expanded model expression differ by
+one floating-point spacing. The available records do not establish the source
+of the second spacing in the native objective evaluation. Under the existing
+acceptance policy, these attempts contribute runtime and feasibility
+observations, with 0/3 accepted and 3/3 independently feasible. Their recomputed costs remain
 diagnostic records in the [raw attempts](../benchmarks/gurobi/runs.csv).
 Accepted objective, component and gap summaries for this case are unavailable;
 the figures mark them as rejected.
@@ -172,7 +172,7 @@ C4 continues to dominate accepted objectives. Its share across accepted Gurobi
 runs is 84.89–99.30% at nominal load and above 99.999% under compute pressure.
 AGH again reduces GH's C1 rental cost by USD 1 per horizon while retaining the
 same C4 and service fractions. The
-[long comparison summary](../benchmarks/backend_comparison/summary.csv)
+[comparison summary](../benchmarks/backend_comparison/summary.csv)
 contains C1–C5 medians, counts, runtime quartiles, accepted objectives, reported
 bounds and MIP gaps for every method and campaign.
 
@@ -215,8 +215,8 @@ The seeds control AGH's local random ordering stream. GH is deterministic for
 each supplied instance; the same round labels pair all methods' observations.
 The round seeds do not set a solver seed; native solver defaults remain active.
 
-The default output is `results/synthetic_benchmark/`. An existing directory is
-refused so observations from separate campaigns remain distinct. To select a
+The default output is `results/synthetic_benchmark/`. The runner requires a new
+directory to keep observations from separate campaigns distinct. To select a
 configuration or a new output directory:
 
 ```bash
@@ -237,8 +237,8 @@ new output directory:
 python scripts/run_synthetic_benchmark.py --config configs/synthetic_benchmark_gurobi.json --output results/synthetic_benchmark_gurobi_run2
 ```
 
-The exact backend is used by P_DM. GH and AGH use the same plain scientific
-records and arithmetic in both campaigns. Their repeated observations provide
+P_DM uses the selected solver backend. GH and AGH use the same input records
+and arithmetic in both campaigns. Their repeated observations provide
 context for execution-time variation and reproducibility of the accepted
 placements.
 
@@ -296,9 +296,9 @@ as `pdm_incumbent_comparison_percent`; it measures a difference between accepted
 objectives. Solver bounds, termination and relative MIP gap remain available to
 interpret that incumbent.
 
-Failed, incomplete and independently rejected attempts remain in the raw
-observations and runtime denominator. Their status, violated families and error
-details stay visible. Unavailable quality values are empty CSV fields and JSON
+Failed, incomplete and rejected attempts remain in the raw observations and
+runtime summaries. Their status, violated constraint families and error details
+remain available. Unavailable quality values are empty CSV fields and JSON
 nulls. The synthetic results establish performance on the recorded instances
 and environments; heuristic agreement with an exact result applies to the
 particular case that was checked.
@@ -347,7 +347,7 @@ with its [measurement manifest](../benchmarks/gurobi/manifest.json),
 [captured source](../benchmarks/gurobi/source_snapshot.zip). Each archive retains
 the code and configuration used in its own campaign. The comparison manifest
 identifies both inputs, the comparator and the renderer, together with hashes
-of the derived CSVs and figures. The 57 scientific source hashes coincide;
+of the derived CSVs and figures. All 57 scientific source file hashes match;
 scripts and configurations retain their separately captured versions.
 
 To inspect the full evidence and captured code, run this Python snippet from

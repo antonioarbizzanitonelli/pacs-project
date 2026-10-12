@@ -27,8 +27,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 5821,
-      "sha256": "a1b63353f4a7c97b8be02ebe64fadc1e17f29f287810601afc83beef47e39597",
+      "bytes": 5941,
+      "sha256": "4769a800027dc0ca78bc1d2d1874edfe669f7fbe17d73643cb4fb97f796b4d42",
       "source": "workspace",
       "text_normalization": "lf"
     },
@@ -299,36 +299,36 @@
     },
     {
       "path": "docs/BENCHMARKS.md",
-      "bytes": 23467,
-      "sha256": "8ab2bd2d97bc124a8a39d4c6c4fd2c8bb89b0d037c2d09ef766d597c20ffb508",
+      "bytes": 23504,
+      "sha256": "47212689152079079388178afa0aa6aa567eb57666bbca6613d080461de16098",
       "source": "workspace",
       "text_normalization": "lf"
     },
     {
       "path": "docs/GITHUB_PREPARATION.md",
-      "bytes": 4892,
-      "sha256": "9a2579feed16a35ba53fd376e5db8201204c238cebc92982bf0e13b4c848acc7",
+      "bytes": 4929,
+      "sha256": "255ed063e067900346c32212967d684499f44de6b0d15d00e0a28ada7dff7e10",
       "source": "workspace",
       "text_normalization": "lf"
     },
     {
       "path": "docs/STAGE1_GUIDE.md",
-      "bytes": 5950,
-      "sha256": "18b864d232281b4b89a74b58882f34958eb72d3418e224269f4aa72487f274f2",
+      "bytes": 6034,
+      "sha256": "7e89b20877adabefca4090c81db4e2088a6bbb9f5d89b676f782131a8d1c0f03",
       "source": "workspace",
       "text_normalization": "lf"
     },
     {
       "path": "docs/STAGE1_VALIDATION.md",
-      "bytes": 4939,
-      "sha256": "c1237f09278ff99c430651d0162a8fc644e4597bb0bdd14a9497d273dc49b2be",
+      "bytes": 5031,
+      "sha256": "0ca52d70fc09f8194cc679633b44390e671dbb4b218d946a053efa063006c0bb",
       "source": "workspace",
       "text_normalization": "lf"
     },
     {
       "path": "docs/UNITS.md",
-      "bytes": 4426,
-      "sha256": "f50f49a46d12a51ebdbb2df539d3d5bccc52afa2a7e201f10361e707cf1a1843",
+      "bytes": 4587,
+      "sha256": "d99998f000294556d3289980d7bef03c28ad7a8aa23819a60f248a54f7e0ee90",
       "source": "workspace",
       "text_normalization": "lf"
     },

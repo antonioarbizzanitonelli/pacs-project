@@ -2,8 +2,8 @@
 
 The Python reference implements deterministic placement (`P_DM`), the M1–M3
 mechanisms, GH and complete AGH. Every accepted complete placement passes the
-same solver-independent feasibility validator. Synthetic instances with
-hand-derived expected values establish the verification scope.
+same solver-independent feasibility validator. Tests use synthetic instances
+with expected values derived by hand.
 
 The publication manifest identifies the Stage-1 source, tests and documentation
 delivered here.
@@ -30,16 +30,16 @@ The example selects HiGHS explicitly for `P_DM` and runs both heuristics on a ti
 dimensionally coherent instance. `make_coherent_tiny_instance` is the starting
 fixture for coherent-unit checks; historical factories retain the literal-paper
 convention for their golden cases. GH and AGH evaluate plain domain records.
-Pyomo and highspy provide the exact-solve path, and the example runs on a CPU
-using the supplied synthetic inputs.
+Pyomo builds the optimization model and HiGHS solves it. The example runs on a
+CPU using the supplied synthetic inputs.
 
 Gurobi is optional: install `python -m pip install -e ".[gurobi]"` and configure
 a usable license. `SolverConfig()` defaults to Gurobi, so pass
 `SolverConfig(backend=SolverBackend.HIGHS)` when using the base installation.
 Dedicated Gurobi integration cases skip if that backend is unavailable; the
 generic placement regression explicitly uses HiGHS. Package requirements are
-specified in `pyproject.toml`; the paper's reported software versions remain
-part of its experimental provenance.
+specified in `pyproject.toml`; the software versions reported in the paper are
+retained as information about its experiments.
 
 ## Read the layers in this order
 
@@ -63,8 +63,9 @@ ProblemInstance -> GH/AGH or P_DM -> PlacementDecisionState
 ```
 
 Import public functions from their defining modules; the `algorithms` package
-also exposes a curated API. `math`, `optimization` and `validation` initializers
-stay lightweight. The only package name is `llm_resource_allocation`.
+also exports the main algorithm functions. The `math`, `optimization` and
+`validation` package initializers keep imports lightweight. The package is named
+`llm_resource_allocation`.
 
 ## Understand the scientific state
 
@@ -79,27 +80,29 @@ Identifiers express meaning independently of container order. A route key is
 | `w`, `y` | Chosen TP/PP configuration and allocated GPU count. |
 | `v` | Auxiliary product of routing and configuration selection. |
 
-Input and decision records own immutable copies. Missing known sparse keys mean
-zero; unknown identifiers and unsupported configurations are invalid. The
+Input and decision records retain immutable copies of the supplied data.
+Omitted entries in a sparse decision map mean zero when their identifiers are
+valid; unknown identifiers and unsupported configurations are invalid. The
 validator evaluates the supplied `v` directly, preserving the extracted decision
 and its constraint residuals.
 
 GH's construction completion and independent feasibility are separate outcomes.
 AGH retains only feasible starts and applies strict objective improvement. Its
 local search transfers complete positive routes, uses deterministic traversal,
-and keeps explicit seeded ordering evidence. Heuristic results represent
+and records the seed and ordering used. Heuristic results represent
 accepted feasible placements. Proven optimality requires the appropriate exact
 solver termination; a time-limit incumbent records feasibility and termination
 separately.
 
-The monetary and resource unit contract, including any explicit divergence from
-printed equations, belongs in [UNITS.md](UNITS.md). [STAGE1_VALIDATION.md](STAGE1_VALIDATION.md)
-records the checks actually performed on the prepared publication. These should
-be read before interpreting objectives or changing tolerances.
+[UNITS.md](UNITS.md) explains resource and monetary units, including the
+dimensional adjustments to the printed equations.
+[STAGE1_VALIDATION.md](STAGE1_VALIDATION.md) records the checks performed on the
+published implementation. Read both before interpreting objectives or changing
+tolerances.
 
 When reporting a result, retain instance identity, unit convention, selected
 configuration, numerical policy and provenance alongside the validated placement.
 
 The [preparation procedure](GITHUB_PREPARATION.md) explains how to assemble and
-review the publication. Package metadata records the pending reuse-license
-choice.
+review the publication. The package metadata states that a reuse license has
+yet to be selected.

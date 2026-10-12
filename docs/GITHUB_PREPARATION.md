@@ -3,14 +3,13 @@
 The publication contains the Stage-1 reference implementation, its tests and
 documentation. Use its explicit file manifest to prepare a reviewable commit.
 
-The explicit [allowlist](../configs/stage1_publication.json) contains the
-source/test paths, documentation, example, CI workflow and exporter. New
-publication files require an explicit change to this list.
-It also includes benchmark configurations, runners and the recorded synthetic
-comparison under `benchmarks/reference/`, with compressed evidence and a frozen
-source archive.
-The equivalent Gurobi campaign is in `benchmarks/gurobi/`; matched observations
-and figures are in `benchmarks/backend_comparison/`.
+The [allowlist](../configs/stage1_publication.json) lists the source files,
+tests, documentation, example, CI workflow and export script. It also includes
+benchmark configurations, runners and the recorded HiGHS campaign under
+`benchmarks/reference/`, with compressed results and an archive of the measured
+source. The Gurobi campaign is in `benchmarks/gurobi/`; paired observations and
+comparison figures are in `benchmarks/backend_comparison/`. Add new publication
+files to the allowlist before exporting them.
 
 ## Build a reviewable tree
 
@@ -21,8 +20,8 @@ python scripts/prepare_stage1_release.py --check
 python scripts/prepare_stage1_release.py
 ```
 
-The default output is `build/stage1/`, ignored by Git. An existing destination is
-refused. For another snapshot, select a new destination:
+The default output is `build/stage1/`, ignored by Git. The exporter requires a
+new destination. To prepare another snapshot, choose a different directory:
 
 ```bash
 python scripts/prepare_stage1_release.py --output build/stage1-review-2
@@ -52,7 +51,7 @@ versioned inputs, the generated manifest retains their source revision, original
 blob hash and named projection. The exported configuration selects the delivered
 files as its inputs, preserving the original configuration hash in the manifest.
 
-## Validate the actual publication
+## Validate the exported files
 
 From the exported tree, use a fresh environment or the existing project
 interpreter with explicit source resolution. The clean-install workflow is:
@@ -72,17 +71,17 @@ python scripts/run_synthetic_benchmark.py --config configs/synthetic_benchmark_s
 python scripts/compare_synthetic_benchmarks.py --reference benchmarks/reference --candidate benchmarks/gurobi --output results/ci-backend-comparison
 ```
 
-The GitHub workflow runs the regression, example, bounded benchmark and recorded
-backend comparison with Python 3.13 and 3.14
-using HiGHS. Optional Gurobi integration skips when it is unavailable. The
-regression must run against the actual delivered tree. Record actual results in
+The GitHub workflow runs the regression, example and bounded benchmark with
+Python 3.13 and 3.14 using HiGHS. It also checks the recorded backend comparison,
+which requires no solver execution. Optional Gurobi integration tests are
+skipped when the backend is unavailable. Run the regression against the exported
+files and record the results in
 [STAGE1_VALIDATION.md](STAGE1_VALIDATION.md), then rebuild so the final
 manifest also covers the completed verification record.
 
-Workflow action versions follow the maintained
-[checkout](https://github.com/actions/checkout) and
-[setup-python](https://github.com/actions/setup-python) usage documentation.
-The hosted job requires only repository read access.
+The workflow uses GitHub's [checkout](https://github.com/actions/checkout) and
+[setup-python](https://github.com/actions/setup-python) actions. The hosted job
+requires only repository read access.
 
 ## Review before a commit
 
@@ -103,6 +102,6 @@ Review the staged diff against the manifest and check for generated artifacts,
 local paths and secrets before committing. This procedure preserves the existing
 repository history.
 
-Literal fixtures preserve their original unit policy for regression checks. The
-README links the papers directly. Select a reuse license before offering external
-users reuse rights.
+Historical fixtures retain the paper's original arithmetic for regression
+checks. The README links both paper versions and states that a reuse license has
+yet to be selected.
