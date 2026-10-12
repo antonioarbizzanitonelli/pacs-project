@@ -50,7 +50,7 @@ independent feasibility, demand served, cost components and solver evidence.
 The configuration and runner reproduce the comparison with the coherent unit
 convention.
 
-The [recorded comparison](docs/BENCHMARKS.md#recorded-comparison) includes 72
+The [HiGHS campaign](docs/BENCHMARKS.md#highs-campaign) includes 72
 measured attempts, all independently accepted. GH's median runtime ranges from
 2.6 to 352 milliseconds and AGH's from 0.055 to 15.6 seconds. P_DM proves
 optimality for the two 2×2×2 cases; larger cases retain feasible incumbents at
@@ -65,6 +65,23 @@ The [summary CSV](benchmarks/reference/summary.csv),
 provenance. [Runtime](benchmarks/reference/plots/runtime.png) and
 [objective/gap](benchmarks/reference/plots/objective_and_gap.png) figures show
 the measured time and quality together with their availability.
+
+The [Gurobi campaign and backend comparison](docs/BENCHMARKS.md#gurobi-campaign-and-backend-comparison)
+repeat the same cases and scientific code with Gurobi 13.0.3. Gurobi also proves
+the two 2×2×2 cases optimal and finds lower accepted incumbents on the larger
+nominal cases; these larger results remain time limited. Its campaign accepts
+69 of 72 measured attempts. Three P_DM attempts on compute-pressure 10×10×10
+pass the constraints but fail objective agreement by `1.49e-8` USD at a
+USD 51.2-million scale, just above the configured absolute tolerance. Their
+quality remains unavailable. GH and AGH are accepted throughout, with identical
+paired objectives across campaigns.
+
+The [paired CSV](benchmarks/backend_comparison/paired_runs.csv),
+[comparison summary](benchmarks/backend_comparison/summary.csv) and
+[manifest](benchmarks/backend_comparison/manifest.json) retain every measured
+attempt. [Backend runtime](benchmarks/backend_comparison/plots/pdm_runtime.png)
+and [solver evidence](benchmarks/backend_comparison/plots/solver_evidence.png)
+figures distinguish accepted optima, feasible incumbents and rejected results.
 
 | Source layer | Responsibility |
 |---|---|

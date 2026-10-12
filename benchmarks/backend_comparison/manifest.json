@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "comparison": "separate synthetic backend campaigns",
+  "runtime_interpretation": "separately measured observations; no simultaneous paired timing experiment or causal speedup claim",
+  "quality_policy": "all measured attempts in counts/runtime; accepted runs only in objective summaries; paired cost differences require both accepted",
+  "gap_policy": "heuristic gap uses accepted OPTIMAL P_DM in the same backend/repeat/seed; comparison to feasible P_DM incumbent is separate",
+  "scientific_source_sha256": {
+    "src/llm_resource_allocation/__init__.py": "64f2cbc50ed57b5ff70657006f1c77ced84748747ac2b3664bfc6cafadcda312",
+    "src/llm_resource_allocation/algorithms/__init__.py": "c38ffe3c42ec76b2696955bf166eb4d44e7282c8a6b0428190a1032e8f6615d2",
+    "src/llm_resource_allocation/algorithms/_agh_placement_ops.py": "69f4904fa31749345a32006f195b3af65884b7787bcb38f50e34edbb3aa55a79",
+    "src/llm_resource_allocation/algorithms/_mechanism_support.py": "d74faccb98c819e145c9b41444fa794be3e13e4fb305a76f70ff07e34cb05cf8",
+    "src/llm_resource_allocation/algorithms/agh.py": "e7dd06d962e52e3633f5c5a6f815313665d2a8fabf26f1f636a2f3627f1a8c45",
+    "src/llm_resource_allocation/algorithms/agh_consolidation.py": "bf4a905a8c6609eb24312acfaa752c0bfcf3abff2f31e157df86ae9c78a9a3da",
+    "src/llm_resource_allocation/algorithms/agh_multistart.py": "ed4fee858dc934dac8ee35e9f883ff922404f5fa2459ce45cfea4e1d1c21663b",
+    "src/llm_resource_allocation/algorithms/agh_ordering.py": "8cae4035bdd94f4ef0e20c114a4f2c4db7c98072ad018df094083b86d15b517b",
+    "src/llm_resource_allocation/algorithms/agh_relocate.py": "168d3f4fbd80a80f57fdcb5de814acfe3e97fbccc62def0de498b46ba74bffa7",
+    "src/llm_resource_allocation/algorithms/agh_relocate_pass.py": "c3c41bd8464afc7886f9a14dfb63494c08c69bd9c046ccc1d425866f86e55c7c",
+    "src/llm_resource_allocation/algorithms/agh_start.py": "c08706d0e8303f6725abcb51e365c7525a6c0e9a6665a85b7cda4dbbb633bafd",
+    "src/llm_resource_allocation/algorithms/gh.py": "a48fea573f21ef5dab5eb30ac96d6f7f15bcb57490b4b14417c711198d665e99",
+    "src/llm_resource_allocation/algorithms/gh_phase1.py": "34409ab80f519d9ba06377acf765822dc10cdabaf7c1a3b75d04d82b3c6507e6",
+    "src/llm_resource_allocation/algorithms/gh_phase2.py": "a768610cfa48c8b0a9738eb12cda7f0ac0adc0e518b833373a85c85b243396b5",
+    "src/llm_resource_allocation/algorithms/gh_phase2_commit.py": "3c28ae958737d069382cd4c33376676afc65ec2394116e68c7cfe0de3243ea09",
+    "src/llm_resource_allocation/algorithms/gh_phase2_query.py": "e46b9c3fe0a31d3be05d8396b468f847b5a4ef04a6778775df4c447c96916005",
+    "src/llm_resource_allocation/algorithms/gh_phase2_run.py": "1f599c96a2689cc5ad461ee729508cdcbd74271bebaf39159272327347311f6f",
+    "src/llm_resource_allocation/algorithms/m1.py": "22a9ca267902823a2703b7d55de5cf894c23030fe6af61b9b370281d346853ad",
+    "src/llm_resource_allocation/algorithms/m2.py": "acda41f45fd77e7b8fc1fc22ad0d03614b434cd3e07dad63edafa7e6767259ea",
+    "src/llm_resource_allocation/algorithms/m3.py": "383154c55f8643bffad43943f18818536e13718a69993d64442904f89736eb4c",
+    "src/llm_resource_allocation/algorithms/phase1.py": "6782307ee5ccf5542ea6d66e3ad671b1c944541e0bce8e11a048d43aaf4e1935",
+    "src/llm_resource_allocation/data/__init__.py": "1e0cff1d192342ee743d3330f593261b29b55f7b41dcb37939c3fe851fa96e61",
+    "src/llm_resource_allocation/data/scaling_experiment_instances.py": "15979b2e843126cf35bb8bfbbc3f37f2a3b87d4b3b4ba9babc03c5b453e4cf9b",
+    "src/llm_resource_allocation/data/synthetic_benchmark_instances.py": "921a5713972c8c7820c3ca1f154e6b4fc1ab0c610446692ea9ee1e94417a8b91",
+    "src/llm_resource_allocation/data/tiny_instances.py": "922b191680f1da56657371e3917217508b531f9d0fd5747ddb780b9ad1bf9493",
+    "src/llm_resource_allocation/domain/__init__.py": "27fa6becb7600a7473b924365eab6ef97b735e6a2dcc347a0aeddd219270c94e",
+    "src/llm_resource_allocation/domain/types.py": "dad32dbd56cc61546db67cee6e3e60407c381e515e34a3e59fefcd7eb8d549ec",
+    "src/llm_resource_allocation/domain/units.py": "6f45e8ffb080d0dfa498530f36ec6d7c005a2680374a4320549016812945a9c7",
+    "src/llm_resource_allocation/domain/validation.py": "8222721e9289d3fa94ecbad34c2252f38afe2a5f530dc952e54fefbde434ab57",
+    "src/llm_resource_allocation/experiments/__init__.py": "0d1ec583b3b4f5c732a7a2111cb58e5ec78bb3b0ed9cf648ec3529d77cedd2e2",
+    "src/llm_resource_allocation/experiments/synthetic_benchmark.py": "acecdec45c9fc029c5b6b5de88d73df03750f3cdc69ca204ee70282fbee50989",
+    "src/llm_resource_allocation/math/__init__.py": "dde0a0f89b514fa96269662aeb216f1b8efaff0d839b8e0a0ad2feda76c3f72f",
+    "src/llm_resource_allocation/math/budget.py": "81761b6e12437ef048d5d0f6163b436ca13457f29037f218bd5ca6af8b93ee9e",
+    "src/llm_resource_allocation/math/compute_capacity.py": "0f14d8a5bf4f4a6bb2270bdb10e28cd30b8b417e7b7b1b5e05f0cf4d8715681c",
+    "src/llm_resource_allocation/math/error.py": "0c8e22caa34b3308347a7791e1d574c5ff044a1d270cdcfa5191022e37e85e63",
+    "src/llm_resource_allocation/math/error_slo.py": "61c5061e216ea1f9a45cabb5aa05cb6a8676c531cbff344dad4a6b9345271945",
+    "src/llm_resource_allocation/math/gpu_memory.py": "6ed5cb9ab2d300ef63ca104c1bcdcb2f5b89dd856659a081328db81eae5a5006",
+    "src/llm_resource_allocation/math/latency.py": "e9311bee9a1955f27a0c6c6388e80a891ba775ec7498f093609ce0a5012dc55a",
+    "src/llm_resource_allocation/math/mccormick.py": "a294729edaabce3edf4bc0363a4b57d7b14a7932fdde872f251fcf5b3368469b",
+    "src/llm_resource_allocation/math/objective.py": "a5a02aca4ccc9841c52dbe111ff94d299549ad4554bbc0f53a25aa71a08ff48f",
+    "src/llm_resource_allocation/math/parallelism.py": "de51669f6742ecea07a22875d5f5ef6ff3626e7ebffe7e3a925822e64702cde7",
+    "src/llm_resource_allocation/math/placement.py": "f1e081fd073b6abcc014eb489316943f642aa1054bf5cc4cd74abaa7ebb31810",
+    "src/llm_resource_allocation/math/processing_delay.py": "7e18bfc63f337dc93441c24b2401561c883a34eab11248b92f804cb3038f14b4",
+    "src/llm_resource_allocation/math/routing.py": "0d8a4eed90a5d0bdd33fbf4afa73f6dced499dd3afe7a0e4532c740718d3240b",
+    "src/llm_resource_allocation/math/storage_capacity.py": "50dbf514b53a4e57fc6add8284ccd9c0233b4ad04e6732c1ce43deb34ade824c",
+    "src/llm_resource_allocation/optimization/__init__.py": "aa0d2c05983409b7c22807916a4fd1555038d458b9c8e09df6777ba58ee9066f",
+    "src/llm_resource_allocation/optimization/extraction.py": "c0a3d8da5294d844f50de152f3e3dd227dff71c69a822b00e67dc541827fffe8",
+    "src/llm_resource_allocation/optimization/pdm_run.py": "6ab143a27629d37f85f7a029447bb1f15cc72cd7c4fa2a8e21930b2cddec55f8",
+    "src/llm_resource_allocation/optimization/problem_data.py": "beb535464e692aab21b29bb21a79224beb1e8c4dbac9f45a29ebd9292684bc62",
+    "src/llm_resource_allocation/optimization/pyomo_pdm.py": "ba54eeece727714d230a37bade10d285309971aa1bcfc9e9f20f339843b615e3",
+    "src/llm_resource_allocation/optimization/solver.py": "5fd995bff7d4dc5f10ccb325b9e655cff48f2488e68b28260cd79c6f2362f8d6",
+    "src/llm_resource_allocation/validation/__init__.py": "de636eeef55a735860b218269acfaf196b552b00c684a37a3128912692455ebb",
+    "src/llm_resource_allocation/validation/objective_comparison.py": "eb6f382eeeca0fd9f528e8e87b73e78f6f8612dea034d9b5b95475f16e526c7b",
+    "src/llm_resource_allocation/validation/placement.py": "ed82c37f54ca1baf58fcd3fb0f64e73c3dd804b4b8ed02f2d33fe884ab74221c",
+    "src/llm_resource_allocation/validation/tolerances.py": "b1f1b36a8994c05604dfbb0486e5995f7d814e9d15e74204613e96723ae74f8b",
+    "src/llm_resource_allocation/verification/__init__.py": "b786f218f203a2db1e11a555f894613c2c1c4be396ea590c6fe27a7a385e758b",
+    "src/llm_resource_allocation/verification/tiny_enumeration.py": "5a3570105cc74be4f6baf296455ce46c891e0206e587c8687e2997e563826a45"
+  },
+  "case_input_sha256": {
+    "nominal_2x2x2": "890036f01f4effb68f8fba9e6064776cdf208019a634cd845b9eb7050bb9f558",
+    "nominal_4x4x5": "af4fe979031024e66075c38a3c2c73785b4566260db7049fbd0d7db5c309e572",
+    "nominal_6x6x10": "fd1f01d43b46762c6c76add66cf188e61e4f9fbe57975094714b0c911572cdde",
+    "nominal_10x10x10": "457964863fd6b1e9ed3755c560ded393e369cf4b1ca6e8e0e678e66fc61b0a4d",
+    "compute_pressure_2x2x2": "028365330e4349a47f8720abb99381a4ee8566c08d8040d75fafeed3c230bebb",
+    "compute_pressure_4x4x5": "837f42e187abad7180b420d6fa4200f3d71b9c4406908931b09c003796306285",
+    "compute_pressure_6x6x10": "383e694784e20f80bb685ed723a5fef42f1ebb1ae7a4ab7a74bdf2d69c5b5c76",
+    "compute_pressure_10x10x10": "abac1afa02a6764c26bf19a711cf03914b07165f65f0661d920064f17ae70049"
+  },
+  "comparison_script_sha256": "0cb624f3846488824e930628115ef591784ba693b6cd34d9620e5d34759eecfd",
+  "inputs": {
+    "reference": {
+      "backend": "highs",
+      "config": {
+        "seeds": [
+          37,
+          41,
+          43
+        ],
+        "query_counts": [],
+        "warmup_repeats": 1,
+        "gh_budget_fraction": 0.8,
+        "backend": "highs",
+        "solver_time_limit_seconds": 20.0,
+        "paper_version": "v2",
+        "data_residency_hours": 1.0
+      },
+      "manifest_sha256": "cbb16c85076df1b614c94bcdf95458e197ccd567ba4ed323867186b958f9bdf6",
+      "runs_sha256": "9385a1a3ee45c7f67106aec376bd6d3b5306bd956ee9ca3dd9338a4e4539957c",
+      "input_config_sha256": "89ef67141ceb34a8af82abe7f60a160ac7f1aa7ec0cf9c3122a04a65801b2f72",
+      "environment": {
+        "python": "3.14.3",
+        "platform": "Windows-11-10.0.26200-SP0",
+        "processor": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+        "logical_cpu_count": 16,
+        "dependencies": {
+          "pyomo": "6.10.0",
+          "highspy": "1.14.0",
+          "gurobipy": "13.0.3",
+          "matplotlib": "3.11.2"
+        }
+      },
+      "manifest_path": "../reference/manifest.json",
+      "runs_path": "../reference/runs.csv"
+    },
+    "candidate": {
+      "backend": "gurobi",
+      "config": {
+        "seeds": [
+          37,
+          41,
+          43
+        ],
+        "query_counts": [],
+        "warmup_repeats": 1,
+        "gh_budget_fraction": 0.8,
+        "backend": "gurobi",
+        "solver_time_limit_seconds": 20.0,
+        "paper_version": "v2",
+        "data_residency_hours": 1.0
+      },
+      "manifest_sha256": "2ddbf969035d3d63d6dac3bb4a57ec88b3a9dacddc83f696712135e6ccb34975",
+      "runs_sha256": "f7d9b7b4c077c1c13f0ad986777ca38be37952f45eafe8621260514d7e667ccc",
+      "input_config_sha256": "afa2d176160460c3a413cd80e07e6913617f81e98dcf5918093202a8f896c453",
+      "environment": {
+        "python": "3.14.3",
+        "platform": "Windows-11-10.0.26200-SP0",
+        "processor": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+        "logical_cpu_count": 16,
+        "dependencies": {
+          "pyomo": "6.10.0",
+          "highspy": "1.14.0",
+          "gurobipy": "13.0.3",
+          "matplotlib": "3.11.2"
+        }
+      },
+      "manifest_path": "../gurobi/manifest.json",
+      "runs_path": "../gurobi/runs.csv"
+    }
+  },
+  "files": {
+    "paired_runs.csv": {
+      "bytes": 34983,
+      "sha256": "1753688f2b68d9bb0cecc9f5cfddf3b83e8bea95699d3e204135aae62ce41cf3"
+    },
+    "plots/heuristic_campaigns.png": {
+      "bytes": 146959,
+      "sha256": "406d45a9b8612c3ce103f9b1370011f6b940fe626f5399804c9d24c2561df2a1"
+    },
+    "plots/heuristic_campaigns.svg": {
+      "bytes": 83988,
+      "sha256": "c8d825c70d1d83315c1ada703ecbbecea45e52da0d03d145011d020e220c0aba"
+    },
+    "plots/pdm_objective.png": {
+      "bytes": 70026,
+      "sha256": "e368ad598425e157b7bc227b49890da36927f6f4a2bb0978da4da2e34ad24fad"
+    },
+    "plots/pdm_objective.svg": {
+      "bytes": 21917,
+      "sha256": "baed97ff8f3031f1dabf9470427eb3494e7efddaf6427b7359375f2cdd1d1e4e"
+    },
+    "plots/pdm_runtime.png": {
+      "bytes": 58477,
+      "sha256": "00091bcad8c3fef242d57a3389f2ccfb1de5cc3793e497063d32692262ec29ca"
+    },
+    "plots/pdm_runtime.svg": {
+      "bytes": 35737,
+      "sha256": "21d65a5b8b2f780262c56fa61e3ba66f1d60e89dabe8d8e0ed53c2c9645f97fd"
+    },
+    "plots/solver_evidence.png": {
+      "bytes": 176689,
+      "sha256": "402f202378267100423ae76c1a715230700ee6364cfa208b07cfcef2ef9d092d"
+    },
+    "plots/solver_evidence.svg": {
+      "bytes": 64892,
+      "sha256": "574856b019b2b8a07c4e4b9aedeb97650cbd29c903bc0a7c7094a49e4aa4a7fe"
+    },
+    "summary.csv": {
+      "bytes": 11541,
+      "sha256": "e4af2b69fa9c041652ab6a747cfbb62871eddad555ed0a34150b28b3ba4bf57d"
+    }
+  },
+  "plotting": {
+    "renderer_path": "scripts/plot_backend_comparison.py",
+    "renderer_sha256": "4a6f16fb6566b62f6e848a1fb7254ae03165312e0b7bbc311de452cd5735a74a",
+    "summary_sha256": "e4af2b69fa9c041652ab6a747cfbb62871eddad555ed0a34150b28b3ba4bf57d",
+    "paired_runs_sha256": "1753688f2b68d9bb0cecc9f5cfddf3b83e8bea95699d3e204135aae62ce41cf3",
+    "matplotlib": "3.11.2",
+    "svg_transport": "LF line endings and trailing XML whitespace removed; parsed drawing nodes and values preserved"
+  }
+}

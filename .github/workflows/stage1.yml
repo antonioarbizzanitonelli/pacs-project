@@ -29,5 +29,7 @@ jobs:
         run: python examples/stage1_quickstart.py
       - name: Run the bounded benchmark
         run: python scripts/run_synthetic_benchmark.py --config configs/synthetic_benchmark_smoke.json --output results/ci-benchmark
+      - name: Recompute the recorded backend comparison
+        run: python scripts/compare_synthetic_benchmarks.py --reference benchmarks/reference --candidate benchmarks/gurobi --output results/ci-backend-comparison
       - name: Verify the publication manifest
         run: python scripts/prepare_stage1_release.py --check

@@ -6,7 +6,7 @@ The input factory uses the [coherent unit convention](UNITS.md). Each instance
 is constructed once and passed to all methods; its full coefficients and
 provenance are retained with the observations.
 
-## Recorded comparison
+## HiGHS campaign
 
 The [reference observations](../benchmarks/reference/summary.csv) cover eight
 cases, with one warmup and three measured repetitions per method: 24 warmup
@@ -19,8 +19,11 @@ validator. The [manifest](../benchmarks/reference/manifest.json) records Python
 Dimensions below are query types × models × GPU tiers. The compute-pressure
 family multiplies the source arrival rates by 100,000 while preserving the
 configured SLO and budget multipliers. Runtime medians include the complete
-public method call. The solver's 20-second limit applies to the solve itself;
-model construction, extraction and validation explain the larger total times.
+public method call. The 20-second limit is passed through as the backend's
+time-limit option. The recorded solver duration covers the APPSI `solve(model)`
+call, including any model transfer and work within that call. Both the call and
+the complete method can exceed the requested limit. Model construction,
+extraction and validation add to the complete method time.
 
 | Load | Dimensions | P_DM termination | P_DM median [s] | GH median [ms] | AGH median [s] |
 |---|---|---|---:|---:|---:|
@@ -79,7 +82,7 @@ compute pressure. This follows from charging modeled processing delay for the
 arrival count over the planning horizon. Changes in served fractions and
 placement affect that large component. The [raw observations](../benchmarks/reference/runs.csv)
 include all five costs, solver bounds, termination and status; the summary
-retains their medians. These controlled synthetic results describe the recorded
+retains component medians. These controlled synthetic results describe the recorded
 instances and environment.
 
 | View | PNG | SVG |
@@ -88,6 +91,111 @@ instances and environment.
 | Accepted objective by load family; proven optimality gaps | [objective and gap](../benchmarks/reference/plots/objective_and_gap.png) | [objective and gap](../benchmarks/reference/plots/objective_and_gap.svg) |
 | C1–C5, independent linear scales by load family | [components](../benchmarks/reference/plots/objective_components.png) | [components](../benchmarks/reference/plots/objective_components.svg) |
 | Acceptance and independent feasibility | [acceptance](../benchmarks/reference/plots/acceptance.png) | [acceptance](../benchmarks/reference/plots/acceptance.svg) |
+
+## Gurobi campaign and backend comparison
+
+The [Gurobi observations](../benchmarks/gurobi/summary.csv) repeat the same eight
+cases with Gurobi 13.0.3, the same 20-second limit and seeds 37, 41 and 43. The
+comparison verifies identical hashes for all 57 scientific Python source files
+and all eight complete instances. Configuration values agree except for the
+backend. The [comparison manifest](../benchmarks/backend_comparison/manifest.json)
+retains those checks and each campaign's environment and input hashes.
+
+Gurobi completes all 72 measured attempts. Independent constraint checks pass
+for every placement, while 69 attempts meet the full acceptance criteria.
+P_DM has six accepted optima, fifteen accepted time-limited incumbents and three
+rejected incumbents. All GH and AGH attempts are accepted. The table compares
+P_DM's total runtime and accepted objective medians; warmups are excluded.
+
+| Load | Dimensions | HiGHS time [s] | Gurobi time [s] | HiGHS objective [USD] | Gurobi objective [USD] | Gurobi accepted / attempted |
+|---|---|---:|---:|---:|---:|---:|
+| Nominal | 2×2×2 | 0.391 | 0.076 | 120.62 | 120.62 | 3/3 |
+| Nominal | 4×4×5 | 20.111 | 20.185 | 244.70 | 225.23 | 3/3 |
+| Nominal | 6×6×10 | 20.511 | 20.507 | 534.56 | 329.86 | 3/3 |
+| Nominal | 10×10×10 | 21.510 | 21.288 | 1,274.76 | 724.02 | 3/3 |
+| ×100,000 | 2×2×2 | 0.313 | 0.085 | 10,240,018.25 | 10,240,018.25 | 3/3 |
+| ×100,000 | 4×4×5 | 20.124 | 20.190 | 20,480,093.24 | 20,480,020.49 | 3/3 |
+| ×100,000 | 6×6×10 | 20.659 | 20.504 | 56,407,996.57 | 30,720,022.74 | 3/3 |
+| ×100,000 | 10×10×10 | 21.223 | 21.369 | 144,835,014.40 | Rejected | 0/3 |
+
+Both backends prove optimality on the two 2×2×2 cases and recover the same
+objective to floating-point precision. Gurobi's recorded total medians are
+lower for those cases. Larger cases reach the solver time limit in both
+campaigns. Their reported bounds leave large MIP gaps: at nominal load the
+median reported gaps are approximately 97.40–99.61% for HiGHS and 88.86–99.38%
+for Gurobi; accepted compute-pressure cases above 2×2×2 remain close to 100%.
+These bounds describe the remaining solver certificate, separately from a
+heuristic's gap against an accepted optimum.
+
+Gurobi finds lower accepted median incumbents on nominal 4×4×5, 6×6×10 and
+10×10×10. On nominal 10×10×10 its USD 724.02 incumbent is below GH's USD 1,151.06
+and AGH's USD 1,150.06. This changes the ordering seen against HiGHS's
+time-limited incumbent. The larger cases have no optimality certificate, so
+these are comparisons of accepted solutions. Optimality gaps for GH and AGH
+remain available only on 2×2×2 in each campaign.
+
+### Rejected compute-pressure result
+
+All three measured Gurobi P_DM attempts on 10×10×10 pass independent constraint
+validation but fail the objective-agreement check. The native objective is
+USD 51,200,027.25220001 and the independently recomputed value is
+USD 51,200,027.25219999. Their binary64 difference is
+`1.4901161193847656e-8` USD, two floating-point spacings at that scale, exceeding
+the configured absolute agreement tolerance of `1e-8` USD. The warmup has the
+same outcome.
+
+The composed processing-delay calculation and its expanded model expression
+differ by one spacing. The audit does not precisely locate the remaining
+spacing within the native objective evaluation. The recorded acceptance policy
+is retained: these attempts contribute runtime and feasibility evidence, with
+0/3 accepted and 3/3 independently feasible. Their recomputed costs remain
+diagnostic records in the [raw attempts](../benchmarks/gurobi/runs.csv).
+Accepted objective, component and gap summaries for this case are unavailable;
+the figures mark them as rejected.
+
+### Heuristics and service across campaigns
+
+The 48 matched GH and AGH attempts have exactly zero paired objective difference
+in the exported records. All their placements are accepted and serve the full
+modeled demand. GH remains the fastest method in each Gurobi case, with median
+times from 2.62 to 387.53 milliseconds. AGH medians range from 0.056 to 16.94
+seconds. Its six executed starts are deterministic, with no random start and no
+strict improvement after the first incumbent, as in the HiGHS campaign.
+
+Accepted Gurobi P_DM runs retain the same service fractions: unweighted mean
+unmet demand is 7.5%, or 8.75% when weighted by arrival rates. The corresponding
+served fractions are 92.5% and 91.25%. These summaries exclude the rejected
+case. The [Gurobi query observations](../benchmarks/gurobi/query_metrics.csv)
+preserve each query fraction and the acceptance flag.
+
+C4 continues to dominate accepted objectives. Its share across accepted Gurobi
+runs is 84.89–99.30% at nominal load and above 99.999% under compute pressure.
+AGH again reduces GH's C1 rental cost by USD 1 per horizon while retaining the
+same C4 and service fractions. The
+[long comparison summary](../benchmarks/backend_comparison/summary.csv)
+contains C1–C5 medians, counts, runtime quartiles, accepted objectives, reported
+bounds and MIP gaps for every method and campaign.
+
+The [72 paired observations](../benchmarks/backend_comparison/paired_runs.csv)
+match case, method, round and seed; objective differences require acceptance in
+both campaigns. Runtime values are separate observations from serial campaigns
+on the recorded machine. Their medians and IQRs describe those runs without
+establishing a universal backend speedup.
+
+| Comparison view | PNG | SVG |
+|---|---|---|
+| P_DM total runtime and solver-call medians, logarithmic axis | [runtime](../benchmarks/backend_comparison/plots/pdm_runtime.png) | [runtime](../benchmarks/backend_comparison/plots/pdm_runtime.svg) |
+| Accepted P_DM objectives, independent load scales | [objectives](../benchmarks/backend_comparison/plots/pdm_objective.png) | [objectives](../benchmarks/backend_comparison/plots/pdm_objective.svg) |
+| Incumbents, reported bounds/MIP gaps and outcome counts | [solver evidence](../benchmarks/backend_comparison/plots/solver_evidence.png) | [solver evidence](../benchmarks/backend_comparison/plots/solver_evidence.svg) |
+| GH/AGH runtime and paired objective differences | [heuristic campaigns](../benchmarks/backend_comparison/plots/heuristic_campaigns.png) | [heuristic campaigns](../benchmarks/backend_comparison/plots/heuristic_campaigns.svg) |
+
+The Gurobi campaign's own
+[runtime](../benchmarks/gurobi/plots/runtime.png),
+[objective/gap](../benchmarks/gurobi/plots/objective_and_gap.png),
+[components](../benchmarks/gurobi/plots/objective_components.png) and
+[acceptance](../benchmarks/gurobi/plots/acceptance.png) figures retain the
+three-method view, including the distinction between acceptance and independent
+feasibility.
 
 ## Run the benchmark
 
@@ -120,6 +228,20 @@ base dependencies. `SolverConfig()` defaults to Gurobi; selecting that backend
 for the benchmark requires `python -m pip install -e ".[gurobi]"` and a usable
 license. The backend selected in the configuration is used directly.
 
+The [Gurobi configuration](../configs/synthetic_benchmark_gurobi.json) preserves
+the cases, repetitions, seeds, physical inputs and 20-second limit. After
+installing the optional package and configuring a usable license, run it in a
+new output directory:
+
+```bash
+python scripts/run_synthetic_benchmark.py --config configs/synthetic_benchmark_gurobi.json --output results/synthetic_benchmark_gurobi_run2
+```
+
+The exact backend is used by P_DM. GH and AGH use the same plain scientific
+records and arithmetic in both campaigns. Their repeated observations provide
+context for execution-time variation and reproducibility of the accepted
+placements.
+
 ## Cases and measurement scope
 
 Each `case_specs` entry gives a unique `case_id`, a `family` label, three
@@ -142,7 +264,8 @@ synthetic inputs, with fixed coefficients describing modeled delay and error.
 Execution time uses a monotonic clock around each public method call. It
 includes input checks, P_DM problem/model construction, solve, extraction and
 independent validation. Imports, source capture, file export and plotting occur
-outside that interval. Solver-only time is recorded separately when available.
+outside that interval. The duration of the APPSI solver call is recorded
+separately when available.
 P_DM uses the configured time limit and zero requested absolute/relative MIP
 gaps; other solver settings follow the backend defaults.
 
@@ -218,6 +341,15 @@ current plotter to separate load scales and display logarithmic runtimes. Its
 renderer hash is retained in the publication manifest. The archive preserves the
 original captured plotter alongside the measured scientific library.
 
+The [Gurobi directory](../benchmarks/gurobi/) provides the same archive layout,
+with its [measurement manifest](../benchmarks/gurobi/manifest.json),
+[compressed evidence](../benchmarks/gurobi/evidence.jsonl.gz) and
+[captured source](../benchmarks/gurobi/source_snapshot.zip). Each archive retains
+the code and configuration used in its own campaign. The comparison manifest
+identifies both inputs, the comparator and the renderer, together with hashes
+of the derived CSVs and figures. The 57 scientific source hashes coincide;
+scripts and configurations retain their separately captured versions.
+
 To inspect the full evidence and captured code, run this Python snippet from
 the repository root, choosing a fresh recovery directory:
 
@@ -258,3 +390,16 @@ Missing objectives and undefined gaps have explicit markers. The figure output
 directory must be new. Runtime uses a declared logarithmic axis with explicit
 markers for nonpositive values; objectives and cost components use independent
 linear scales for each load family. The recorded numerical values remain intact.
+
+To rebuild the backend comparison from the published observations and render
+its four views, choose fresh output directories:
+
+```bash
+python scripts/compare_synthetic_benchmarks.py --reference benchmarks/reference --candidate benchmarks/gurobi --output results/backend_comparison_run2
+python scripts/plot_backend_comparison.py --comparison results/backend_comparison_run2 --output results/backend_comparison_run2/plots
+```
+
+The comparator checks scientific source hashes, complete case identities and
+configuration equivalence before pairing measured attempts. It reads the CSVs
+and manifests; the plotter reads the derived tables. Both commands preserve the
+recorded algorithm runs.

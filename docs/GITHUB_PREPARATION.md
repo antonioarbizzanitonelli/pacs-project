@@ -9,6 +9,8 @@ publication files require an explicit change to this list.
 It also includes benchmark configurations, runners and the recorded synthetic
 comparison under `benchmarks/reference/`, with compressed evidence and a frozen
 source archive.
+The equivalent Gurobi campaign is in `benchmarks/gurobi/`; matched observations
+and figures are in `benchmarks/backend_comparison/`.
 
 ## Build a reviewable tree
 
@@ -67,9 +69,11 @@ python -m pip install -e .
 python -m unittest discover -s tests -q
 python examples/stage1_quickstart.py
 python scripts/run_synthetic_benchmark.py --config configs/synthetic_benchmark_smoke.json --output results/ci-benchmark
+python scripts/compare_synthetic_benchmarks.py --reference benchmarks/reference --candidate benchmarks/gurobi --output results/ci-backend-comparison
 ```
 
-The GitHub workflow runs the regression, example and bounded benchmark with Python 3.13 and 3.14
+The GitHub workflow runs the regression, example, bounded benchmark and recorded
+backend comparison with Python 3.13 and 3.14
 using HiGHS. Optional Gurobi integration skips when it is unavailable. The
 regression must run against the actual delivered tree. Record actual results in
 [STAGE1_VALIDATION.md](STAGE1_VALIDATION.md), then rebuild so the final

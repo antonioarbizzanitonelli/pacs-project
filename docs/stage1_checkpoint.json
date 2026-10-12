@@ -13,15 +13,15 @@
       "gurobi_enabled": true,
       "installed_package": false,
       "exit_code": 0,
-      "test_count": 668,
-      "unittest_seconds": 7.699,
+      "test_count": 680,
+      "unittest_seconds": 5.595,
       "summary": [
         "----------------------------------------------------------------------",
-        "Ran 668 tests in 7.699s",
+        "Ran 680 tests in 5.595s",
         "",
         "OK"
       ],
-      "compiled_files": 111,
+      "compiled_files": 115,
       "source_hashes_stable": true
     },
     {
@@ -34,15 +34,15 @@
       "gurobi_enabled": false,
       "installed_package": true,
       "exit_code": 0,
-      "test_count": 664,
-      "unittest_seconds": 5.148,
+      "test_count": 676,
+      "unittest_seconds": 3.904,
       "summary": [
         "----------------------------------------------------------------------",
-        "Ran 664 tests in 5.148s",
+        "Ran 676 tests in 3.904s",
         "",
-        "OK (skipped=3)"
+        "OK (skipped=4)"
       ],
-      "compiled_files": 111,
+      "compiled_files": 115,
       "source_hashes_stable": true
     }
   ],
@@ -52,6 +52,8 @@
   "standalone_export_check_passed": true,
   "source_sha256": {
     "examples/stage1_quickstart.py": "ffbe07c161ed99956a0d94a80490eb135234febb4a77098ac6a64afdfbf252b6",
+    "scripts/compare_synthetic_benchmarks.py": "0cb624f3846488824e930628115ef591784ba693b6cd34d9620e5d34759eecfd",
+    "scripts/plot_backend_comparison.py": "4a6f16fb6566b62f6e848a1fb7254ae03165312e0b7bbc311de452cd5735a74a",
     "scripts/plot_synthetic_benchmark.py": "ff19933f1d07a7160dfccb59d4b33b173d17ef179f63a52bba63f630a4776afb",
     "scripts/prepare_stage1_release.py": "635509517ea7f7b9159f4512446e12d0480497525f4ed71e1978da3d6c51d16a",
     "scripts/run_synthetic_benchmark.py": "7059c90c071c65ed905ccd721db25ba5232579a7cfcd23e98bc43ddf5099c846",
@@ -120,6 +122,8 @@
     "tests/test_agh_relocate.py": "3ca28f1b5197e17054a40205b738e997f9587aa78e49796643aa4ae188183ebf",
     "tests/test_agh_relocate_pass.py": "68097b12d95ad22f3e02fcf03a37001b7d3d7ee6008289cb3ec19f9c4e812cf5",
     "tests/test_agh_start.py": "15dd16f2a0f55a9fceb8b7b0e42dd84be721191bf7df94adf6fefd55e124ad91",
+    "tests/test_backend_comparison.py": "78842156e3783fdb9992d4fce8e99d5ab8fa3cd5f3f0b622845b9bc3fdaee27f",
+    "tests/test_backend_comparison_plots.py": "9f6153dada7d59d48b56b30bce0d98c8c2ce8b048cba52167071d2cb323c22ac",
     "tests/test_budget.py": "80ce13f04a83496b5e7440eee17d83f6b445f782cd3ca7637dfe50322b1b9fbe",
     "tests/test_coherent_resource_bounds.py": "cdb608af51115be6c5e76c627ebe655917d72452f75a9b99f068df827cb9daa8",
     "tests/test_coherent_units.py": "e4e88dbd3bd200e46625cd58334193c0f206d8554f5fa408d74b6026a2019827",
@@ -171,6 +175,32 @@
     "warmup_attempts": 24,
     "measured_accepted": 72,
     "measured_pdm_optimal": 6,
-    "measured_pdm_feasible_nonoptimal": 18
+    "measured_pdm_feasible_nonoptimal": 18,
+    "backend": "highs",
+    "manifest": "benchmarks/reference/manifest.json"
+  },
+  "backend_comparison": {
+    "same_complete_instances": 8,
+    "same_scientific_source_files": 57,
+    "measured_attempt_pairs": 72,
+    "summary_rows": 48,
+    "highs_measured_accepted": 72,
+    "gurobi_measured_accepted": 69,
+    "gurobi_pdm_measured_optimal": 6,
+    "gurobi_pdm_measured_accepted_nonoptimal": 15,
+    "gurobi_pdm_measured_objective_disagreement": 3,
+    "comparison_cli_passed_in_base_environment": true
+  },
+  "gurobi_synthetic_benchmark": {
+    "backend": "gurobi",
+    "manifest": "benchmarks/gurobi/manifest.json",
+    "measured_attempts": 72,
+    "warmup_attempts": 24,
+    "measured_accepted": 69,
+    "measured_pdm_optimal": 6,
+    "measured_pdm_accepted_nonoptimal": 15,
+    "measured_pdm_objective_disagreement": 3,
+    "objective_agreement_absolute_tolerance": 1e-08,
+    "observed_objective_absolute_difference": 1.4901161193847656e-08
   }
 }

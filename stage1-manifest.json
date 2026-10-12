@@ -1,8 +1,8 @@
 {
   "format_version": 1,
   "scope": "Python Stage-1 reference: P_DM, M1-M3, GH and complete AGH",
-  "allowlist_sha256": "ef082fa31c0519fe06e28ea70f0b35f12bbbebc76dd7d59c291873e34450ebff",
-  "file_count": 139,
+  "allowlist_sha256": "7e622dc25dc7bfc5a6a61a565374dbc1807d44bfa8ed065546cfcb923c15e37f",
+  "file_count": 169,
   "files": [
     {
       "path": ".gitattributes",
@@ -13,8 +13,8 @@
     },
     {
       "path": ".github/workflows/stage1.yml",
-      "bytes": 988,
-      "sha256": "4594041ce086116ce7c09b46927e28238681f0025d88e12df6e4e9177c8b0273",
+      "bytes": 1206,
+      "sha256": "808d4af21787c1cdfb4a7468d687818e84e0d347c2ec15b8d6f4dc609aa0b308",
       "source": "workspace",
       "text_normalization": "lf"
     },
@@ -27,10 +27,162 @@
     },
     {
       "path": "README.md",
-      "bytes": 4694,
-      "sha256": "3eec18e5b281f7dd776a89c44d18ea8cf2f8643ad6f1fa8dad4631c84f2cc821",
+      "bytes": 5821,
+      "sha256": "a1b63353f4a7c97b8be02ebe64fadc1e17f29f287810601afc83beef47e39597",
       "source": "workspace",
       "text_normalization": "lf"
+    },
+    {
+      "path": "benchmarks/backend_comparison/manifest.json",
+      "bytes": 12887,
+      "sha256": "6ac25c043616eb9b0bc8a6f7051b747a6055941165b0b5dc77ce52c028210a30",
+      "source": "workspace",
+      "text_normalization": "lf"
+    },
+    {
+      "path": "benchmarks/backend_comparison/paired_runs.csv",
+      "bytes": 34983,
+      "sha256": "1753688f2b68d9bb0cecc9f5cfddf3b83e8bea95699d3e204135aae62ce41cf3",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/backend_comparison/plots/heuristic_campaigns.png",
+      "bytes": 146959,
+      "sha256": "406d45a9b8612c3ce103f9b1370011f6b940fe626f5399804c9d24c2561df2a1",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/backend_comparison/plots/heuristic_campaigns.svg",
+      "bytes": 83988,
+      "sha256": "c8d825c70d1d83315c1ada703ecbbecea45e52da0d03d145011d020e220c0aba",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/backend_comparison/plots/pdm_objective.png",
+      "bytes": 70026,
+      "sha256": "e368ad598425e157b7bc227b49890da36927f6f4a2bb0978da4da2e34ad24fad",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/backend_comparison/plots/pdm_objective.svg",
+      "bytes": 21917,
+      "sha256": "baed97ff8f3031f1dabf9470427eb3494e7efddaf6427b7359375f2cdd1d1e4e",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/backend_comparison/plots/pdm_runtime.png",
+      "bytes": 58477,
+      "sha256": "00091bcad8c3fef242d57a3389f2ccfb1de5cc3793e497063d32692262ec29ca",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/backend_comparison/plots/pdm_runtime.svg",
+      "bytes": 35737,
+      "sha256": "21d65a5b8b2f780262c56fa61e3ba66f1d60e89dabe8d8e0ed53c2c9645f97fd",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/backend_comparison/plots/solver_evidence.png",
+      "bytes": 176689,
+      "sha256": "402f202378267100423ae76c1a715230700ee6364cfa208b07cfcef2ef9d092d",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/backend_comparison/plots/solver_evidence.svg",
+      "bytes": 64892,
+      "sha256": "574856b019b2b8a07c4e4b9aedeb97650cbd29c903bc0a7c7094a49e4aa4a7fe",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/backend_comparison/summary.csv",
+      "bytes": 11541,
+      "sha256": "e4af2b69fa9c041652ab6a747cfbb62871eddad555ed0a34150b28b3ba4bf57d",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/gurobi/evidence.jsonl.gz",
+      "bytes": 3672112,
+      "sha256": "12c34a7e93f1aafe291f94fe950ee7b2ff5afcdf01e0524aae1554759c105936",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/gurobi/manifest.json",
+      "bytes": 2330634,
+      "sha256": "2ddbf969035d3d63d6dac3bb4a57ec88b3a9dacddc83f696712135e6ccb34975",
+      "source": "workspace",
+      "text_normalization": "lf"
+    },
+    {
+      "path": "benchmarks/gurobi/plots/acceptance.png",
+      "bytes": 151050,
+      "sha256": "e6ea0da202975d28913739eb797df6ba1c850d019033789e5ea8bb5ad5615f94",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/gurobi/plots/acceptance.svg",
+      "bytes": 35811,
+      "sha256": "1dc6d9f33324d1bfa144d456c09fc09935116e0d98383e93db5fdd35952bfcbe",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/gurobi/plots/objective_and_gap.png",
+      "bytes": 161684,
+      "sha256": "b18ce6616216e362c85e0f8f565a5e05db5be620f78cb93da20a11998922e0ee",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/gurobi/plots/objective_and_gap.svg",
+      "bytes": 38171,
+      "sha256": "83e5f799aa35e0b14075e74600a52f01132ab4751393df56f0a9e3bd2fdde0f3",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/gurobi/plots/objective_components.png",
+      "bytes": 142549,
+      "sha256": "041c29c508deaed673c524f9c2c3f49654ac3d342853ce6579a3577221a30cf4",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/gurobi/plots/objective_components.svg",
+      "bytes": 49668,
+      "sha256": "f85801ca8f51fb7c47c69ff47299cf4624a4cb2667fc007202cbecf1e2b9eec6",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/gurobi/plots/runtime.png",
+      "bytes": 89141,
+      "sha256": "074ac379ded04a2baecf7b66d456923047188f7a28fc8b8ed9d6c9ac7686b090",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/gurobi/plots/runtime.svg",
+      "bytes": 41206,
+      "sha256": "6b458608ac3ef9e6b46e26b7c682f501df20cd0cb458f5bff16b902f204f6d40",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/gurobi/query_metrics.csv",
+      "bytes": 48938,
+      "sha256": "f2bad7ae8da30d8fd6812bb1e6af4c5a1a626d34d4a08cb14033688c3e007d13",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/gurobi/runs.csv",
+      "bytes": 29006,
+      "sha256": "f7d9b7b4c077c1c13f0ad986777ca38be37952f45eafe8621260514d7e667ccc",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/gurobi/source_snapshot.zip",
+      "bytes": 239506,
+      "sha256": "aa60bdf85e55da625d06461478d07aa7437e2548099cf3c96fcd39eb21b76862",
+      "source": "workspace"
+    },
+    {
+      "path": "benchmarks/gurobi/summary.csv",
+      "bytes": 5140,
+      "sha256": "904de6da93918a29b424a44dd6dc175f482200c5b9d018970f8d0ed463008ac6",
+      "source": "workspace"
     },
     {
       "path": "benchmarks/reference/evidence.jsonl.gz",
@@ -119,8 +271,8 @@
     },
     {
       "path": "configs/stage1_publication.json",
-      "bytes": 6422,
-      "sha256": "ef082fa31c0519fe06e28ea70f0b35f12bbbebc76dd7d59c291873e34450ebff",
+      "bytes": 7934,
+      "sha256": "7e622dc25dc7bfc5a6a61a565374dbc1807d44bfa8ed065546cfcb923c15e37f",
       "source": "workspace",
       "text_normalization": "lf"
     },
@@ -128,6 +280,13 @@
       "path": "configs/synthetic_benchmark.json",
       "bytes": 2227,
       "sha256": "89ef67141ceb34a8af82abe7f60a160ac7f1aa7ec0cf9c3122a04a65801b2f72",
+      "source": "workspace",
+      "text_normalization": "lf"
+    },
+    {
+      "path": "configs/synthetic_benchmark_gurobi.json",
+      "bytes": 2228,
+      "sha256": "afa2d176160460c3a413cd80e07e6913617f81e98dcf5918093202a8f896c453",
       "source": "workspace",
       "text_normalization": "lf"
     },
@@ -140,15 +299,15 @@
     },
     {
       "path": "docs/BENCHMARKS.md",
-      "bytes": 14573,
-      "sha256": "53bb59bded44ce97e99889f56b632a495547fe08e769f377b36e1d07e9ca11ee",
+      "bytes": 23467,
+      "sha256": "8ab2bd2d97bc124a8a39d4c6c4fd2c8bb89b0d037c2d09ef766d597c20ffb508",
       "source": "workspace",
       "text_normalization": "lf"
     },
     {
       "path": "docs/GITHUB_PREPARATION.md",
-      "bytes": 4581,
-      "sha256": "781df371af6f4c1bfbcd1d6a506960e3a3cfc5f6dec16905c05bbbebc428a99a",
+      "bytes": 4892,
+      "sha256": "9a2579feed16a35ba53fd376e5db8201204c238cebc92982bf0e13b4c848acc7",
       "source": "workspace",
       "text_normalization": "lf"
     },
@@ -161,8 +320,8 @@
     },
     {
       "path": "docs/STAGE1_VALIDATION.md",
-      "bytes": 4142,
-      "sha256": "a1f2cd09546b0460ac1a1cc0e449b3bb247d5f20adedd67d54af0cf0be5bf242",
+      "bytes": 4939,
+      "sha256": "c1237f09278ff99c430651d0162a8fc644e4597bb0bdd14a9497d273dc49b2be",
       "source": "workspace",
       "text_normalization": "lf"
     },
@@ -175,8 +334,8 @@
     },
     {
       "path": "docs/stage1_checkpoint.json",
-      "bytes": 14833,
-      "sha256": "a98c133db03b76a2d3d1086e0b6d8ba99215c77de91b93a80f62a55fb51e557b",
+      "bytes": 16231,
+      "sha256": "b07f336c980e1deea5bfc984ad2fae73e4af9881dba82bf863792f615720180b",
       "source": "workspace",
       "text_normalization": "lf"
     },
@@ -191,6 +350,20 @@
       "path": "pyproject.toml",
       "bytes": 596,
       "sha256": "c593c4256fd25b8eb92d463c33b050ead276b5eb4aff19430cfd7547682d92ba",
+      "source": "workspace",
+      "text_normalization": "lf"
+    },
+    {
+      "path": "scripts/compare_synthetic_benchmarks.py",
+      "bytes": 17416,
+      "sha256": "0cb624f3846488824e930628115ef591784ba693b6cd34d9620e5d34759eecfd",
+      "source": "workspace",
+      "text_normalization": "lf"
+    },
+    {
+      "path": "scripts/plot_backend_comparison.py",
+      "bytes": 18863,
+      "sha256": "4a6f16fb6566b62f6e848a1fb7254ae03165312e0b7bbc311de452cd5735a74a",
       "source": "workspace",
       "text_normalization": "lf"
     },
@@ -667,6 +840,20 @@
       "path": "tests/test_agh_start.py",
       "bytes": 13265,
       "sha256": "15dd16f2a0f55a9fceb8b7b0e42dd84be721191bf7df94adf6fefd55e124ad91",
+      "source": "workspace",
+      "text_normalization": "lf"
+    },
+    {
+      "path": "tests/test_backend_comparison.py",
+      "bytes": 11663,
+      "sha256": "78842156e3783fdb9992d4fce8e99d5ab8fa3cd5f3f0b622845b9bc3fdaee27f",
+      "source": "workspace",
+      "text_normalization": "lf"
+    },
+    {
+      "path": "tests/test_backend_comparison_plots.py",
+      "bytes": 8328,
+      "sha256": "9f6153dada7d59d48b56b30bce0d98c8c2ce8b048cba52167071d2cb323c22ac",
       "source": "workspace",
       "text_normalization": "lf"
     },
